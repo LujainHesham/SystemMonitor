@@ -1,0 +1,107 @@
+System Monitoring Report (Brief Mode)
+Generated: 2025-12-25 10:40:48
+System: Linux 6.6.87.2-microsoft-standard-WSL2 x86_64 GNU/Linux
+Hostname: 1cca2f9688ca
+Uptime: up 1 hour, 21 minutes
+======================================
+
+Summary: CPU 0.07% (sample 5s), Mem 697Mi used / 7.5Gi total, Root 1%, Load 0.06, 0.12, 0.08
+
+[2025-12-25 10:40:53] Collecting CPU information...
+========== CPU INFORMATION ==========
+CPU Model: Intel(R) Core(TM) Ultra 7 255H
+CPU Cores: 16
+Load Average:0.06, 0.12, 0.08
+CPU Usage: 0.09% (sample 5s)
+
+[2025-12-25 10:40:59] Collecting Memory information...
+========== MEMORY INFORMATION ==========
+               total        used        free      shared  buff/cache   available
+Mem:           7.5Gi       695Mi       5.9Gi       5.0Mi       962Mi       6.6Gi
+Swap:          2.0Gi          0B       2.0Gi
+
+[2025-12-25 10:40:59] Collecting Disk information...
+========== DISK INFORMATION ==========
+Key Filesystems:
+Filesystem     Type     Size  Used Avail Use% Mounted on
+overlay        overlay 1007G  4.8G  951G   1% /
+
+All Filesystems (WSL includes overlays and tmpfs):
+Filesystem     Type     Size  Used Avail Use% Mounted on
+overlay        overlay 1007G  4.8G  951G   1% /
+tmpfs          tmpfs     64M     0   64M   0% /dev
+shm            tmpfs     64M     0   64M   0% /dev/shm
+D:\            9p       588G   55G  534G  10% /app/logs
+/dev/sdf       ext4    1007G  4.8G  951G   1% /etc/hosts
+tmpfs          tmpfs    3.8G     0  3.8G   0% /proc/acpi
+tmpfs          tmpfs    3.8G     0  3.8G   0% /proc/scsi
+tmpfs          tmpfs    3.8G     0  3.8G   0% /sys/firmware
+
+--- Windows Disk Health (Host) ---
+FriendlyName                   Health       OperationalStatus  SizeGB    
+NVMe WD PC SN5000S SDEQNSJ-1T00-1002 Healthy      OK                 953.87    
+
+[2025-12-25 10:41:00] Collecting SMART status...
+========== SMART STATUS ==========
+--- Windows Host Disk Health ---
+FriendlyName                   Health       OperationalStatus  SizeGB    
+NVMe WD PC SN5000S SDEQNSJ-1T00-1002 Healthy      OK                 953.87    
+
+[2025-12-25 10:41:00] Collecting Temperature information...
+========== TEMPERATURE INFORMATION ==========
+WSL Environment Detected
+--- CSV Temperatures (Windows) ---
+CPU Package Temp (CSV): CPU [#0]: Intel Core Ultra 7 255H: DTS°C
+--- Windows Host Thermal Zones ---
+No Windows thermal zones available or access denied.
+Tip: Best results from HWiNFO64 CSV logging. Set WINDOWS_TEMPS_CSV to the CSV path.
+
+[2025-12-25 10:41:02] Collecting Network information...
+========== NETWORK INFORMATION ==========
+Network Interfaces:
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+eth0@if9         UP             172.18.0.2/16 
+
+Default Gateway:
+default via 172.18.0.1 dev eth0 
+
+Throughput over 5s:
+Interface        RX (Mb/s)    TX (Mb/s)    RXerrs     TXerrs    
+eth0             0            0            0          0         
+
+Interface error counters (ip -s link):
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    RX:  bytes packets errors dropped  missed   mcast           
+           960      16      0       0       0       0 
+    TX:  bytes packets errors dropped carrier collsns           
+           960      16      0       0       0       0 
+2: eth0@if9: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP mode DEFAULT group default 
+    link/ether 6a:5c:a6:c0:7f:c2 brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    RX:  bytes packets errors dropped  missed   mcast           
+         10218      66      0       0       0       0 
+    TX:  bytes packets errors dropped carrier collsns           
+        103018      50      0       0       0       0 
+
+[2025-12-25 10:41:07] Collecting GPU information...
+========== GPU INFORMATION ==========
+--- Windows Host GPU (Intel/Generic) ---
+Adapters:
+  Name: Intel(R) Graphics | Driver: 32.0.101.6790 | Processor: Intel(R) Graphics Family
+
+GPU Engine Utilization:
+  GPU Engine counters not available.
+
+GPU Memory (Dedicated Usage):
+  luid_0x00000000_0x0000fee6_phys_0: 0 MB
+  luid_0x00000000_0x000102d1_phys_0: 0 MB
+  luid_0x00000000_0x0001034c_phys_0: 0 MB
+Note: For deeper Intel GPU telemetry on Windows, use Intel Graphics Command Center.
+
+[2025-12-25 10:41:08] Checking for critical conditions...
+========== SYSTEM ALERTS ==========
+✅ All systems normal
+
+Alert count: 0
+======================================
+Report saved to: /app/reports/system_report_20251225_104048.txt

@@ -1,0 +1,659 @@
+System Monitoring Report (Brief Mode)
+Generated: 2025-12-25 09:46:26
+System: Linux 6.6.87.2-microsoft-standard-WSL2 x86_64 GNU/Linux
+Hostname: OjjaPC
+Uptime: up 27 minutes
+======================================
+
+Summary: CPU 0.12% (sample 1s), Mem 568Mi used / 7.5Gi total, Root 1%, Load 0.00, 0.00, 0.00
+
+[2025-12-25 09:46:27] Collecting CPU information...
+========== CPU INFORMATION ==========
+CPU Model: Intel(R) Core(TM) Ultra 7 255H
+CPU Cores: 16
+Load Average:0.00, 0.00, 0.00
+CPU Usage: 0.06% (sample 1s)
+
+[2025-12-25 09:46:28] Collecting Memory information...
+========== MEMORY INFORMATION ==========
+               total        used        free      shared  buff/cache   available
+Mem:           7.5Gi       570Mi       6.7Gi       3.6Mi       333Mi       6.9Gi
+Swap:          2.0Gi          0B       2.0Gi
+
+[2025-12-25 09:46:28] Collecting Disk information...
+========== DISK INFORMATION ==========
+Key Filesystems:
+Filesystem     Type  Size  Used Avail Use% Mounted on
+/dev/sdd       ext4 1007G  3.4G  953G   1% /
+C:\            9p    365G  162G  204G  45% /mnt/c
+D:\            9p    588G   55G  534G  10% /mnt/d
+
+All Filesystems (WSL includes overlays and tmpfs):
+Filesystem     Type     Size  Used Avail Use% Mounted on
+drivers        9p       365G  162G  204G  45% /usr/lib/wsl/drivers
+/dev/sdd       ext4    1007G  3.4G  953G   1% /
+C:\            9p       365G  162G  204G  45% /mnt/c
+D:\            9p       588G   55G  534G  10% /mnt/d
+tmpfs          tmpfs    766M   20K  766M   1% /run/user/1000
+
+--- Windows Disk Health (Host) ---
+
+FriendlyName                         HealthStatus OperationalStatus          Size
+------------                         ------------ -----------------          ----
+NVMe WD PC SN5000S SDEQNSJ-1T00-1002 Healthy      OK                1024209543168
+
+[2025-12-25 09:46:31] Collecting SMART status...
+========== SMART STATUS ==========
+--- Windows Host Disk Health ---
+
+FriendlyName                         HealthStatus OperationalStatus          Size
+------------                         ------------ -----------------          ----
+NVMe WD PC SN5000S SDEQNSJ-1T00-1002 Healthy      OK                1024209543168
+
+[2025-12-25 09:46:33] Collecting Temperature information...
+========== TEMPERATURE INFORMATION ==========
+WSL Environment Detected
+CSV path not set (WINDOWS_TEMPS_CSV). Skipping CSV temps.
+--- Windows Host Thermal Zones ---
+No Windows thermal zones available
+Tip: Best results from HWiNFO64 CSV logging. Set WINDOWS_TEMPS_CSV to the CSV path.
+
+[2025-12-25 09:46:34] Collecting Network information...
+========== NETWORK INFORMATION ==========
+Network Interfaces:
+lo               UNKNOWN        127.0.0.1/8 10.255.255.254/32 ::1/128 
+eth0             UP             172.28.78.149/20 fe80::215:5dff:fe49:6903/64 
+docker0          DOWN           172.17.0.1/16 
+
+Default Gateway:
+default via 172.28.64.1 dev eth0 proto kernel 
+
+Throughput over 1s:
+Interface        RX (Mb/s)    TX (Mb/s)    RXerrs     TXerrs    
+eth0             0            0            0          0         
+
+Interface error counters (ip -s link):
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    RX:  bytes packets errors dropped  missed   mcast           
+          3974      36      0       0       0       0 
+    TX:  bytes packets errors dropped carrier collsns           
+          3974      36      0       0       0       0 
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP mode DEFAULT group default qlen 1000
+    link/ether 00:15:5d:49:69:03 brd ff:ff:ff:ff:ff:ff
+    RX:  bytes packets errors dropped  missed   mcast           
+         16869     104      0       0       0      79 
+    TX:  bytes packets errors dropped carrier collsns           
+          5690      66      0       0       0       0 
+3: docker0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN mode DEFAULT group default 
+    link/ether 02:83:0f:72:29:62 brd ff:ff:ff:ff:ff:ff
+    RX:  bytes packets errors dropped  missed   mcast           
+             0       0      0       0       0       0 
+    TX:  bytes packets errors dropped carrier collsns           
+             0       0      0       0       0       0 
+
+[2025-12-25 09:46:35] Collecting GPU information...
+========== GPU INFORMATION ==========
+--- Windows Host GPU (Intel/Generic) ---
+Adapter: Intel(R) Graphics | DriverVersion: 32.0.101.6790 | VideoProcessor: Intel(R) Graphics Family
+
+GPU Engine Utilization (Windows counters):
+pid_10812_luid_0x00000000_0x0000fee6_phys_0_eng_0_engtype_3d: 0%
+pid_10812_luid_0x00000000_0x0000fee6_phys_0_eng_10_engtype_: 0%
+pid_10812_luid_0x00000000_0x0000fee6_phys_0_eng_11_engtype_: 0%
+pid_10812_luid_0x00000000_0x0000fee6_phys_0_eng_12_engtype_: 0%
+pid_10812_luid_0x00000000_0x0000fee6_phys_0_eng_1_engtype_videodecode: 0%
+pid_10812_luid_0x00000000_0x0000fee6_phys_0_eng_2_engtype_copy: 0%
+pid_10812_luid_0x00000000_0x0000fee6_phys_0_eng_3_engtype_videoprocessing: 0%
+pid_10812_luid_0x00000000_0x0000fee6_phys_0_eng_4_engtype_videodecode: 0%
+pid_10812_luid_0x00000000_0x0000fee6_phys_0_eng_5_engtype_compute: 0%
+pid_10812_luid_0x00000000_0x0000fee6_phys_0_eng_6_engtype_gsc: 0%
+pid_10812_luid_0x00000000_0x0000fee6_phys_0_eng_7_engtype_: 0%
+pid_10812_luid_0x00000000_0x0000fee6_phys_0_eng_8_engtype_: 0%
+pid_10812_luid_0x00000000_0x0000fee6_phys_0_eng_9_engtype_: 0%
+pid_11304_luid_0x00000000_0x0000fee6_phys_0_eng_0_engtype_3d: 0%
+pid_11304_luid_0x00000000_0x0000fee6_phys_0_eng_10_engtype_: 0%
+pid_11304_luid_0x00000000_0x0000fee6_phys_0_eng_11_engtype_: 0%
+pid_11304_luid_0x00000000_0x0000fee6_phys_0_eng_12_engtype_: 0%
+pid_11304_luid_0x00000000_0x0000fee6_phys_0_eng_1_engtype_videodecode: 0%
+pid_11304_luid_0x00000000_0x0000fee6_phys_0_eng_2_engtype_copy: 0%
+pid_11304_luid_0x00000000_0x0000fee6_phys_0_eng_3_engtype_videoprocessing: 0%
+pid_11304_luid_0x00000000_0x0000fee6_phys_0_eng_4_engtype_videodecode: 0%
+pid_11304_luid_0x00000000_0x0000fee6_phys_0_eng_5_engtype_compute: 0%
+pid_11304_luid_0x00000000_0x0000fee6_phys_0_eng_6_engtype_gsc: 0%
+pid_11304_luid_0x00000000_0x0000fee6_phys_0_eng_7_engtype_: 0%
+pid_11304_luid_0x00000000_0x0000fee6_phys_0_eng_8_engtype_: 0%
+pid_11304_luid_0x00000000_0x0000fee6_phys_0_eng_9_engtype_: 0%
+pid_11332_luid_0x00000000_0x0000fee6_phys_0_eng_0_engtype_3d: 0%
+pid_11332_luid_0x00000000_0x0000fee6_phys_0_eng_10_engtype_: 0%
+pid_11332_luid_0x00000000_0x0000fee6_phys_0_eng_11_engtype_: 0%
+pid_11332_luid_0x00000000_0x0000fee6_phys_0_eng_12_engtype_: 0%
+pid_11332_luid_0x00000000_0x0000fee6_phys_0_eng_1_engtype_videodecode: 0%
+pid_11332_luid_0x00000000_0x0000fee6_phys_0_eng_2_engtype_copy: 0%
+pid_11332_luid_0x00000000_0x0000fee6_phys_0_eng_3_engtype_videoprocessing: 0%
+pid_11332_luid_0x00000000_0x0000fee6_phys_0_eng_4_engtype_videodecode: 0%
+pid_11332_luid_0x00000000_0x0000fee6_phys_0_eng_5_engtype_compute: 0%
+pid_11332_luid_0x00000000_0x0000fee6_phys_0_eng_6_engtype_gsc: 0%
+pid_11332_luid_0x00000000_0x0000fee6_phys_0_eng_7_engtype_: 0%
+pid_11332_luid_0x00000000_0x0000fee6_phys_0_eng_8_engtype_: 0%
+pid_11332_luid_0x00000000_0x0000fee6_phys_0_eng_9_engtype_: 0%
+pid_11404_luid_0x00000000_0x0000fee6_phys_0_eng_0_engtype_3d: 0%
+pid_11404_luid_0x00000000_0x0000fee6_phys_0_eng_10_engtype_: 0%
+pid_11404_luid_0x00000000_0x0000fee6_phys_0_eng_11_engtype_: 0%
+pid_11404_luid_0x00000000_0x0000fee6_phys_0_eng_12_engtype_: 0%
+pid_11404_luid_0x00000000_0x0000fee6_phys_0_eng_1_engtype_videodecode: 0%
+pid_11404_luid_0x00000000_0x0000fee6_phys_0_eng_2_engtype_copy: 0%
+pid_11404_luid_0x00000000_0x0000fee6_phys_0_eng_3_engtype_videoprocessing: 0%
+pid_11404_luid_0x00000000_0x0000fee6_phys_0_eng_4_engtype_videodecode: 0%
+pid_11404_luid_0x00000000_0x0000fee6_phys_0_eng_5_engtype_compute: 0%
+pid_11404_luid_0x00000000_0x0000fee6_phys_0_eng_6_engtype_gsc: 0%
+pid_11404_luid_0x00000000_0x0000fee6_phys_0_eng_7_engtype_: 0%
+pid_11404_luid_0x00000000_0x0000fee6_phys_0_eng_8_engtype_: 0%
+pid_11404_luid_0x00000000_0x0000fee6_phys_0_eng_9_engtype_: 0%
+pid_11996_luid_0x00000000_0x0000fee6_phys_0_eng_0_engtype_3d: 0%
+pid_11996_luid_0x00000000_0x0000fee6_phys_0_eng_10_engtype_: 0%
+pid_11996_luid_0x00000000_0x0000fee6_phys_0_eng_11_engtype_: 0%
+pid_11996_luid_0x00000000_0x0000fee6_phys_0_eng_12_engtype_: 0%
+pid_11996_luid_0x00000000_0x0000fee6_phys_0_eng_1_engtype_videodecode: 0%
+pid_11996_luid_0x00000000_0x0000fee6_phys_0_eng_2_engtype_copy: 0%
+pid_11996_luid_0x00000000_0x0000fee6_phys_0_eng_3_engtype_videoprocessing: 0%
+pid_11996_luid_0x00000000_0x0000fee6_phys_0_eng_4_engtype_videodecode: 0%
+pid_11996_luid_0x00000000_0x0000fee6_phys_0_eng_5_engtype_compute: 0%
+pid_11996_luid_0x00000000_0x0000fee6_phys_0_eng_6_engtype_gsc: 0%
+pid_11996_luid_0x00000000_0x0000fee6_phys_0_eng_7_engtype_: 0%
+pid_11996_luid_0x00000000_0x0000fee6_phys_0_eng_8_engtype_: 0%
+pid_11996_luid_0x00000000_0x0000fee6_phys_0_eng_9_engtype_: 0%
+pid_14124_luid_0x00000000_0x0000fee6_phys_0_eng_0_engtype_3d: 0.27%
+pid_14124_luid_0x00000000_0x0000fee6_phys_0_eng_10_engtype_: 0%
+pid_14124_luid_0x00000000_0x0000fee6_phys_0_eng_11_engtype_: 0%
+pid_14124_luid_0x00000000_0x0000fee6_phys_0_eng_12_engtype_: 0%
+pid_14124_luid_0x00000000_0x0000fee6_phys_0_eng_1_engtype_videodecode: 0%
+pid_14124_luid_0x00000000_0x0000fee6_phys_0_eng_2_engtype_copy: 0%
+pid_14124_luid_0x00000000_0x0000fee6_phys_0_eng_3_engtype_videoprocessing: 0%
+pid_14124_luid_0x00000000_0x0000fee6_phys_0_eng_4_engtype_videodecode: 0%
+pid_14124_luid_0x00000000_0x0000fee6_phys_0_eng_5_engtype_compute: 0%
+pid_14124_luid_0x00000000_0x0000fee6_phys_0_eng_6_engtype_gsc: 0%
+pid_14124_luid_0x00000000_0x0000fee6_phys_0_eng_7_engtype_: 0%
+pid_14124_luid_0x00000000_0x0000fee6_phys_0_eng_8_engtype_: 0%
+pid_14124_luid_0x00000000_0x0000fee6_phys_0_eng_9_engtype_: 0%
+pid_14196_luid_0x00000000_0x0000fee6_phys_0_eng_0_engtype_3d: 0%
+pid_14196_luid_0x00000000_0x0000fee6_phys_0_eng_10_engtype_: 0%
+pid_14196_luid_0x00000000_0x0000fee6_phys_0_eng_11_engtype_: 0%
+pid_14196_luid_0x00000000_0x0000fee6_phys_0_eng_12_engtype_: 0%
+pid_14196_luid_0x00000000_0x0000fee6_phys_0_eng_1_engtype_videodecode: 0%
+pid_14196_luid_0x00000000_0x0000fee6_phys_0_eng_2_engtype_copy: 0%
+pid_14196_luid_0x00000000_0x0000fee6_phys_0_eng_3_engtype_videoprocessing: 0%
+pid_14196_luid_0x00000000_0x0000fee6_phys_0_eng_4_engtype_videodecode: 0%
+pid_14196_luid_0x00000000_0x0000fee6_phys_0_eng_5_engtype_compute: 0%
+pid_14196_luid_0x00000000_0x0000fee6_phys_0_eng_6_engtype_gsc: 0%
+pid_14196_luid_0x00000000_0x0000fee6_phys_0_eng_7_engtype_: 0%
+pid_14196_luid_0x00000000_0x0000fee6_phys_0_eng_8_engtype_: 0%
+pid_14196_luid_0x00000000_0x0000fee6_phys_0_eng_9_engtype_: 0%
+pid_14544_luid_0x00000000_0x0000fee6_phys_0_eng_0_engtype_3d: 0%
+pid_14544_luid_0x00000000_0x0000fee6_phys_0_eng_10_engtype_: 0%
+pid_14544_luid_0x00000000_0x0000fee6_phys_0_eng_11_engtype_: 0%
+pid_14544_luid_0x00000000_0x0000fee6_phys_0_eng_12_engtype_: 0%
+pid_14544_luid_0x00000000_0x0000fee6_phys_0_eng_1_engtype_videodecode: 0%
+pid_14544_luid_0x00000000_0x0000fee6_phys_0_eng_2_engtype_copy: 0%
+pid_14544_luid_0x00000000_0x0000fee6_phys_0_eng_3_engtype_videoprocessing: 0%
+pid_14544_luid_0x00000000_0x0000fee6_phys_0_eng_4_engtype_videodecode: 0%
+pid_14544_luid_0x00000000_0x0000fee6_phys_0_eng_5_engtype_compute: 0%
+pid_14544_luid_0x00000000_0x0000fee6_phys_0_eng_6_engtype_gsc: 0%
+pid_14544_luid_0x00000000_0x0000fee6_phys_0_eng_7_engtype_: 0%
+pid_14544_luid_0x00000000_0x0000fee6_phys_0_eng_8_engtype_: 0%
+pid_14544_luid_0x00000000_0x0000fee6_phys_0_eng_9_engtype_: 0%
+pid_14544_luid_0x00000000_0x000102d1_phys_0_eng_0_engtype_3d: 0%
+pid_14544_luid_0x00000000_0x000102d1_phys_0_eng_10_engtype_3d: 0%
+pid_14544_luid_0x00000000_0x000102d1_phys_0_eng_11_engtype_3d: 0%
+pid_14544_luid_0x00000000_0x000102d1_phys_0_eng_12_engtype_3d: 0%
+pid_14544_luid_0x00000000_0x000102d1_phys_0_eng_13_engtype_3d: 0%
+pid_14544_luid_0x00000000_0x000102d1_phys_0_eng_14_engtype_3d: 0%
+pid_14544_luid_0x00000000_0x000102d1_phys_0_eng_15_engtype_3d: 0%
+pid_14544_luid_0x00000000_0x000102d1_phys_0_eng_16_engtype_3d: 0%
+pid_14544_luid_0x00000000_0x000102d1_phys_0_eng_1_engtype_3d: 0%
+pid_14544_luid_0x00000000_0x000102d1_phys_0_eng_2_engtype_3d: 0%
+pid_14544_luid_0x00000000_0x000102d1_phys_0_eng_3_engtype_3d: 0%
+pid_14544_luid_0x00000000_0x000102d1_phys_0_eng_4_engtype_3d: 0%
+pid_14544_luid_0x00000000_0x000102d1_phys_0_eng_5_engtype_3d: 0%
+pid_14544_luid_0x00000000_0x000102d1_phys_0_eng_6_engtype_3d: 0%
+pid_14544_luid_0x00000000_0x000102d1_phys_0_eng_7_engtype_3d: 0%
+pid_14544_luid_0x00000000_0x000102d1_phys_0_eng_8_engtype_3d: 0%
+pid_14544_luid_0x00000000_0x000102d1_phys_0_eng_9_engtype_3d: 0%
+pid_14908_luid_0x00000000_0x0000fee6_phys_0_eng_0_engtype_3d: 0%
+pid_14908_luid_0x00000000_0x0000fee6_phys_0_eng_10_engtype_: 0%
+pid_14908_luid_0x00000000_0x0000fee6_phys_0_eng_11_engtype_: 0%
+pid_14908_luid_0x00000000_0x0000fee6_phys_0_eng_12_engtype_: 0%
+pid_14908_luid_0x00000000_0x0000fee6_phys_0_eng_1_engtype_videodecode: 0%
+pid_14908_luid_0x00000000_0x0000fee6_phys_0_eng_2_engtype_copy: 0%
+pid_14908_luid_0x00000000_0x0000fee6_phys_0_eng_3_engtype_videoprocessing: 0%
+pid_14908_luid_0x00000000_0x0000fee6_phys_0_eng_4_engtype_videodecode: 0%
+pid_14908_luid_0x00000000_0x0000fee6_phys_0_eng_5_engtype_compute: 0%
+pid_14908_luid_0x00000000_0x0000fee6_phys_0_eng_6_engtype_gsc: 0%
+pid_14908_luid_0x00000000_0x0000fee6_phys_0_eng_7_engtype_: 0%
+pid_14908_luid_0x00000000_0x0000fee6_phys_0_eng_8_engtype_: 0%
+pid_14908_luid_0x00000000_0x0000fee6_phys_0_eng_9_engtype_: 0%
+pid_14908_luid_0x00000000_0x000102d1_phys_0_eng_0_engtype_3d: 0%
+pid_14908_luid_0x00000000_0x000102d1_phys_0_eng_10_engtype_3d: 0%
+pid_14908_luid_0x00000000_0x000102d1_phys_0_eng_11_engtype_3d: 0%
+pid_14908_luid_0x00000000_0x000102d1_phys_0_eng_12_engtype_3d: 0%
+pid_14908_luid_0x00000000_0x000102d1_phys_0_eng_13_engtype_3d: 0%
+pid_14908_luid_0x00000000_0x000102d1_phys_0_eng_14_engtype_3d: 0%
+pid_14908_luid_0x00000000_0x000102d1_phys_0_eng_15_engtype_3d: 0%
+pid_14908_luid_0x00000000_0x000102d1_phys_0_eng_16_engtype_3d: 0%
+pid_14908_luid_0x00000000_0x000102d1_phys_0_eng_1_engtype_3d: 0%
+pid_14908_luid_0x00000000_0x000102d1_phys_0_eng_2_engtype_3d: 0%
+pid_14908_luid_0x00000000_0x000102d1_phys_0_eng_3_engtype_3d: 0%
+pid_14908_luid_0x00000000_0x000102d1_phys_0_eng_4_engtype_3d: 0%
+pid_14908_luid_0x00000000_0x000102d1_phys_0_eng_5_engtype_3d: 0%
+pid_14908_luid_0x00000000_0x000102d1_phys_0_eng_6_engtype_3d: 0%
+pid_14908_luid_0x00000000_0x000102d1_phys_0_eng_7_engtype_3d: 0%
+pid_14908_luid_0x00000000_0x000102d1_phys_0_eng_8_engtype_3d: 0%
+pid_14908_luid_0x00000000_0x000102d1_phys_0_eng_9_engtype_3d: 0%
+pid_15532_luid_0x00000000_0x0000fee6_phys_0_eng_0_engtype_3d: 0%
+pid_15532_luid_0x00000000_0x0000fee6_phys_0_eng_10_engtype_: 0%
+pid_15532_luid_0x00000000_0x0000fee6_phys_0_eng_11_engtype_: 0%
+pid_15532_luid_0x00000000_0x0000fee6_phys_0_eng_12_engtype_: 0%
+pid_15532_luid_0x00000000_0x0000fee6_phys_0_eng_1_engtype_videodecode: 0%
+pid_15532_luid_0x00000000_0x0000fee6_phys_0_eng_2_engtype_copy: 0%
+pid_15532_luid_0x00000000_0x0000fee6_phys_0_eng_3_engtype_videoprocessing: 0%
+pid_15532_luid_0x00000000_0x0000fee6_phys_0_eng_4_engtype_videodecode: 0%
+pid_15532_luid_0x00000000_0x0000fee6_phys_0_eng_5_engtype_compute: 0%
+pid_15532_luid_0x00000000_0x0000fee6_phys_0_eng_6_engtype_gsc: 0%
+pid_15532_luid_0x00000000_0x0000fee6_phys_0_eng_7_engtype_: 0%
+pid_15532_luid_0x00000000_0x0000fee6_phys_0_eng_8_engtype_: 0%
+pid_15532_luid_0x00000000_0x0000fee6_phys_0_eng_9_engtype_: 0%
+pid_16244_luid_0x00000000_0x0000fee6_phys_0_eng_0_engtype_3d: 0%
+pid_16244_luid_0x00000000_0x0000fee6_phys_0_eng_10_engtype_: 0%
+pid_16244_luid_0x00000000_0x0000fee6_phys_0_eng_11_engtype_: 0%
+pid_16244_luid_0x00000000_0x0000fee6_phys_0_eng_12_engtype_: 0%
+pid_16244_luid_0x00000000_0x0000fee6_phys_0_eng_1_engtype_videodecode: 0%
+pid_16244_luid_0x00000000_0x0000fee6_phys_0_eng_2_engtype_copy: 0%
+pid_16244_luid_0x00000000_0x0000fee6_phys_0_eng_3_engtype_videoprocessing: 0%
+pid_16244_luid_0x00000000_0x0000fee6_phys_0_eng_4_engtype_videodecode: 0%
+pid_16244_luid_0x00000000_0x0000fee6_phys_0_eng_5_engtype_compute: 0%
+pid_16244_luid_0x00000000_0x0000fee6_phys_0_eng_6_engtype_gsc: 0%
+pid_16244_luid_0x00000000_0x0000fee6_phys_0_eng_7_engtype_: 0%
+pid_16244_luid_0x00000000_0x0000fee6_phys_0_eng_8_engtype_: 0%
+pid_16244_luid_0x00000000_0x0000fee6_phys_0_eng_9_engtype_: 0%
+pid_16448_luid_0x00000000_0x000102d1_phys_0_eng_0_engtype_3d: 0%
+pid_16448_luid_0x00000000_0x000102d1_phys_0_eng_10_engtype_3d: 0%
+pid_16448_luid_0x00000000_0x000102d1_phys_0_eng_11_engtype_3d: 0%
+pid_16448_luid_0x00000000_0x000102d1_phys_0_eng_12_engtype_3d: 0%
+pid_16448_luid_0x00000000_0x000102d1_phys_0_eng_13_engtype_3d: 0%
+pid_16448_luid_0x00000000_0x000102d1_phys_0_eng_14_engtype_3d: 0%
+pid_16448_luid_0x00000000_0x000102d1_phys_0_eng_15_engtype_3d: 0%
+pid_16448_luid_0x00000000_0x000102d1_phys_0_eng_16_engtype_3d: 0%
+pid_16448_luid_0x00000000_0x000102d1_phys_0_eng_1_engtype_3d: 0%
+pid_16448_luid_0x00000000_0x000102d1_phys_0_eng_2_engtype_3d: 0%
+pid_16448_luid_0x00000000_0x000102d1_phys_0_eng_3_engtype_3d: 0%
+pid_16448_luid_0x00000000_0x000102d1_phys_0_eng_4_engtype_3d: 0%
+pid_16448_luid_0x00000000_0x000102d1_phys_0_eng_5_engtype_3d: 0%
+pid_16448_luid_0x00000000_0x000102d1_phys_0_eng_6_engtype_3d: 0%
+pid_16448_luid_0x00000000_0x000102d1_phys_0_eng_7_engtype_3d: 0%
+pid_16448_luid_0x00000000_0x000102d1_phys_0_eng_8_engtype_3d: 0%
+pid_16448_luid_0x00000000_0x000102d1_phys_0_eng_9_engtype_3d: 0%
+pid_1648_luid_0x00000000_0x0000fee6_phys_0_eng_0_engtype_3d: 0%
+pid_1648_luid_0x00000000_0x0000fee6_phys_0_eng_10_engtype_: 0%
+pid_1648_luid_0x00000000_0x0000fee6_phys_0_eng_11_engtype_: 0%
+pid_1648_luid_0x00000000_0x0000fee6_phys_0_eng_12_engtype_: 0%
+pid_1648_luid_0x00000000_0x0000fee6_phys_0_eng_1_engtype_videodecode: 0%
+pid_1648_luid_0x00000000_0x0000fee6_phys_0_eng_2_engtype_copy: 0%
+pid_1648_luid_0x00000000_0x0000fee6_phys_0_eng_3_engtype_videoprocessing: 0%
+pid_1648_luid_0x00000000_0x0000fee6_phys_0_eng_4_engtype_videodecode: 0%
+pid_1648_luid_0x00000000_0x0000fee6_phys_0_eng_5_engtype_compute: 0%
+pid_1648_luid_0x00000000_0x0000fee6_phys_0_eng_6_engtype_gsc: 0%
+pid_1648_luid_0x00000000_0x0000fee6_phys_0_eng_7_engtype_: 0%
+pid_1648_luid_0x00000000_0x0000fee6_phys_0_eng_8_engtype_: 0%
+pid_1648_luid_0x00000000_0x0000fee6_phys_0_eng_9_engtype_: 0%
+pid_18388_luid_0x00000000_0x0000fee6_phys_0_eng_0_engtype_3d: 0%
+pid_18388_luid_0x00000000_0x0000fee6_phys_0_eng_10_engtype_: 0%
+pid_18388_luid_0x00000000_0x0000fee6_phys_0_eng_11_engtype_: 0%
+pid_18388_luid_0x00000000_0x0000fee6_phys_0_eng_12_engtype_: 0%
+pid_18388_luid_0x00000000_0x0000fee6_phys_0_eng_1_engtype_videodecode: 0%
+pid_18388_luid_0x00000000_0x0000fee6_phys_0_eng_2_engtype_copy: 0%
+pid_18388_luid_0x00000000_0x0000fee6_phys_0_eng_3_engtype_videoprocessing: 0%
+pid_18388_luid_0x00000000_0x0000fee6_phys_0_eng_4_engtype_videodecode: 0%
+pid_18388_luid_0x00000000_0x0000fee6_phys_0_eng_5_engtype_compute: 0%
+pid_18388_luid_0x00000000_0x0000fee6_phys_0_eng_6_engtype_gsc: 0%
+pid_18388_luid_0x00000000_0x0000fee6_phys_0_eng_7_engtype_: 0%
+pid_18388_luid_0x00000000_0x0000fee6_phys_0_eng_8_engtype_: 0%
+pid_18388_luid_0x00000000_0x0000fee6_phys_0_eng_9_engtype_: 0%
+pid_2032_luid_0x00000000_0x000102d1_phys_0_eng_0_engtype_3d: 0%
+pid_2032_luid_0x00000000_0x000102d1_phys_0_eng_10_engtype_3d: 0%
+pid_2032_luid_0x00000000_0x000102d1_phys_0_eng_11_engtype_3d: 0%
+pid_2032_luid_0x00000000_0x000102d1_phys_0_eng_12_engtype_3d: 0%
+pid_2032_luid_0x00000000_0x000102d1_phys_0_eng_13_engtype_3d: 0%
+pid_2032_luid_0x00000000_0x000102d1_phys_0_eng_14_engtype_3d: 0%
+pid_2032_luid_0x00000000_0x000102d1_phys_0_eng_15_engtype_3d: 0%
+pid_2032_luid_0x00000000_0x000102d1_phys_0_eng_16_engtype_3d: 0%
+pid_2032_luid_0x00000000_0x000102d1_phys_0_eng_1_engtype_3d: 0%
+pid_2032_luid_0x00000000_0x000102d1_phys_0_eng_2_engtype_3d: 0%
+pid_2032_luid_0x00000000_0x000102d1_phys_0_eng_3_engtype_3d: 0%
+pid_2032_luid_0x00000000_0x000102d1_phys_0_eng_4_engtype_3d: 0%
+pid_2032_luid_0x00000000_0x000102d1_phys_0_eng_5_engtype_3d: 0%
+pid_2032_luid_0x00000000_0x000102d1_phys_0_eng_6_engtype_3d: 0%
+pid_2032_luid_0x00000000_0x000102d1_phys_0_eng_7_engtype_3d: 0%
+pid_2032_luid_0x00000000_0x000102d1_phys_0_eng_8_engtype_3d: 0%
+pid_2032_luid_0x00000000_0x000102d1_phys_0_eng_9_engtype_3d: 0%
+pid_20624_luid_0x00000000_0x0000fee6_phys_0_eng_0_engtype_3d: 0%
+pid_20624_luid_0x00000000_0x0000fee6_phys_0_eng_10_engtype_: 0%
+pid_20624_luid_0x00000000_0x0000fee6_phys_0_eng_11_engtype_: 0%
+pid_20624_luid_0x00000000_0x0000fee6_phys_0_eng_12_engtype_: 0%
+pid_20624_luid_0x00000000_0x0000fee6_phys_0_eng_1_engtype_videodecode: 0%
+pid_20624_luid_0x00000000_0x0000fee6_phys_0_eng_2_engtype_copy: 0%
+pid_20624_luid_0x00000000_0x0000fee6_phys_0_eng_3_engtype_videoprocessing: 0%
+pid_20624_luid_0x00000000_0x0000fee6_phys_0_eng_4_engtype_videodecode: 0%
+pid_20624_luid_0x00000000_0x0000fee6_phys_0_eng_5_engtype_compute: 0%
+pid_20624_luid_0x00000000_0x0000fee6_phys_0_eng_6_engtype_gsc: 0%
+pid_20624_luid_0x00000000_0x0000fee6_phys_0_eng_7_engtype_: 0%
+pid_20624_luid_0x00000000_0x0000fee6_phys_0_eng_8_engtype_: 0%
+pid_20624_luid_0x00000000_0x0000fee6_phys_0_eng_9_engtype_: 0%
+pid_20892_luid_0x00000000_0x0000fee6_phys_0_eng_0_engtype_3d: 0%
+pid_20892_luid_0x00000000_0x0000fee6_phys_0_eng_10_engtype_: 0%
+pid_20892_luid_0x00000000_0x0000fee6_phys_0_eng_11_engtype_: 0%
+pid_20892_luid_0x00000000_0x0000fee6_phys_0_eng_12_engtype_: 0%
+pid_20892_luid_0x00000000_0x0000fee6_phys_0_eng_1_engtype_videodecode: 0%
+pid_20892_luid_0x00000000_0x0000fee6_phys_0_eng_2_engtype_copy: 0%
+pid_20892_luid_0x00000000_0x0000fee6_phys_0_eng_3_engtype_videoprocessing: 0%
+pid_20892_luid_0x00000000_0x0000fee6_phys_0_eng_4_engtype_videodecode: 0%
+pid_20892_luid_0x00000000_0x0000fee6_phys_0_eng_5_engtype_compute: 0%
+pid_20892_luid_0x00000000_0x0000fee6_phys_0_eng_6_engtype_gsc: 0%
+pid_20892_luid_0x00000000_0x0000fee6_phys_0_eng_7_engtype_: 0%
+pid_20892_luid_0x00000000_0x0000fee6_phys_0_eng_8_engtype_: 0%
+pid_20892_luid_0x00000000_0x0000fee6_phys_0_eng_9_engtype_: 0%
+pid_20892_luid_0x00000000_0x000102d1_phys_0_eng_0_engtype_3d: 0%
+pid_20892_luid_0x00000000_0x000102d1_phys_0_eng_10_engtype_3d: 0%
+pid_20892_luid_0x00000000_0x000102d1_phys_0_eng_11_engtype_3d: 0%
+pid_20892_luid_0x00000000_0x000102d1_phys_0_eng_12_engtype_3d: 0%
+pid_20892_luid_0x00000000_0x000102d1_phys_0_eng_13_engtype_3d: 0%
+pid_20892_luid_0x00000000_0x000102d1_phys_0_eng_14_engtype_3d: 0%
+pid_20892_luid_0x00000000_0x000102d1_phys_0_eng_15_engtype_3d: 0%
+pid_20892_luid_0x00000000_0x000102d1_phys_0_eng_16_engtype_3d: 0%
+pid_20892_luid_0x00000000_0x000102d1_phys_0_eng_1_engtype_3d: 0%
+pid_20892_luid_0x00000000_0x000102d1_phys_0_eng_2_engtype_3d: 0%
+pid_20892_luid_0x00000000_0x000102d1_phys_0_eng_3_engtype_3d: 0%
+pid_20892_luid_0x00000000_0x000102d1_phys_0_eng_4_engtype_3d: 0%
+pid_20892_luid_0x00000000_0x000102d1_phys_0_eng_5_engtype_3d: 0%
+pid_20892_luid_0x00000000_0x000102d1_phys_0_eng_6_engtype_3d: 0%
+pid_20892_luid_0x00000000_0x000102d1_phys_0_eng_7_engtype_3d: 0%
+pid_20892_luid_0x00000000_0x000102d1_phys_0_eng_8_engtype_3d: 0%
+pid_20892_luid_0x00000000_0x000102d1_phys_0_eng_9_engtype_3d: 0%
+pid_21620_luid_0x00000000_0x0000fee6_phys_0_eng_0_engtype_3d: 0%
+pid_21620_luid_0x00000000_0x0000fee6_phys_0_eng_10_engtype_: 0%
+pid_21620_luid_0x00000000_0x0000fee6_phys_0_eng_11_engtype_: 0%
+pid_21620_luid_0x00000000_0x0000fee6_phys_0_eng_12_engtype_: 0%
+pid_21620_luid_0x00000000_0x0000fee6_phys_0_eng_1_engtype_videodecode: 0%
+pid_21620_luid_0x00000000_0x0000fee6_phys_0_eng_2_engtype_copy: 0%
+pid_21620_luid_0x00000000_0x0000fee6_phys_0_eng_3_engtype_videoprocessing: 0%
+pid_21620_luid_0x00000000_0x0000fee6_phys_0_eng_4_engtype_videodecode: 0%
+pid_21620_luid_0x00000000_0x0000fee6_phys_0_eng_5_engtype_compute: 0%
+pid_21620_luid_0x00000000_0x0000fee6_phys_0_eng_6_engtype_gsc: 0%
+pid_21620_luid_0x00000000_0x0000fee6_phys_0_eng_7_engtype_: 0%
+pid_21620_luid_0x00000000_0x0000fee6_phys_0_eng_8_engtype_: 0%
+pid_21620_luid_0x00000000_0x0000fee6_phys_0_eng_9_engtype_: 0%
+pid_21676_luid_0x00000000_0x0000fee6_phys_0_eng_0_engtype_3d: 0%
+pid_21676_luid_0x00000000_0x0000fee6_phys_0_eng_10_engtype_: 0%
+pid_21676_luid_0x00000000_0x0000fee6_phys_0_eng_11_engtype_: 0%
+pid_21676_luid_0x00000000_0x0000fee6_phys_0_eng_12_engtype_: 0%
+pid_21676_luid_0x00000000_0x0000fee6_phys_0_eng_1_engtype_videodecode: 0%
+pid_21676_luid_0x00000000_0x0000fee6_phys_0_eng_2_engtype_copy: 0%
+pid_21676_luid_0x00000000_0x0000fee6_phys_0_eng_3_engtype_videoprocessing: 0%
+pid_21676_luid_0x00000000_0x0000fee6_phys_0_eng_4_engtype_videodecode: 0%
+pid_21676_luid_0x00000000_0x0000fee6_phys_0_eng_5_engtype_compute: 0%
+pid_21676_luid_0x00000000_0x0000fee6_phys_0_eng_6_engtype_gsc: 0%
+pid_21676_luid_0x00000000_0x0000fee6_phys_0_eng_7_engtype_: 0%
+pid_21676_luid_0x00000000_0x0000fee6_phys_0_eng_8_engtype_: 0%
+pid_21676_luid_0x00000000_0x0000fee6_phys_0_eng_9_engtype_: 0%
+pid_22380_luid_0x00000000_0x0000fee6_phys_0_eng_0_engtype_3d: 0%
+pid_22380_luid_0x00000000_0x0000fee6_phys_0_eng_10_engtype_: 0%
+pid_22380_luid_0x00000000_0x0000fee6_phys_0_eng_11_engtype_: 0%
+pid_22380_luid_0x00000000_0x0000fee6_phys_0_eng_12_engtype_: 0%
+pid_22380_luid_0x00000000_0x0000fee6_phys_0_eng_1_engtype_videodecode: 0%
+pid_22380_luid_0x00000000_0x0000fee6_phys_0_eng_2_engtype_copy: 0%
+pid_22380_luid_0x00000000_0x0000fee6_phys_0_eng_3_engtype_videoprocessing: 0%
+pid_22380_luid_0x00000000_0x0000fee6_phys_0_eng_4_engtype_videodecode: 0%
+pid_22380_luid_0x00000000_0x0000fee6_phys_0_eng_5_engtype_compute: 0%
+pid_22380_luid_0x00000000_0x0000fee6_phys_0_eng_6_engtype_gsc: 0%
+pid_22380_luid_0x00000000_0x0000fee6_phys_0_eng_7_engtype_: 0%
+pid_22380_luid_0x00000000_0x0000fee6_phys_0_eng_8_engtype_: 0%
+pid_22380_luid_0x00000000_0x0000fee6_phys_0_eng_9_engtype_: 0%
+pid_22380_luid_0x00000000_0x000102d1_phys_0_eng_0_engtype_3d: 0%
+pid_22380_luid_0x00000000_0x000102d1_phys_0_eng_10_engtype_3d: 0%
+pid_22380_luid_0x00000000_0x000102d1_phys_0_eng_11_engtype_3d: 0%
+pid_22380_luid_0x00000000_0x000102d1_phys_0_eng_12_engtype_3d: 0%
+pid_22380_luid_0x00000000_0x000102d1_phys_0_eng_13_engtype_3d: 0%
+pid_22380_luid_0x00000000_0x000102d1_phys_0_eng_14_engtype_3d: 0%
+pid_22380_luid_0x00000000_0x000102d1_phys_0_eng_15_engtype_3d: 0%
+pid_22380_luid_0x00000000_0x000102d1_phys_0_eng_16_engtype_3d: 0%
+pid_22380_luid_0x00000000_0x000102d1_phys_0_eng_1_engtype_3d: 0%
+pid_22380_luid_0x00000000_0x000102d1_phys_0_eng_2_engtype_3d: 0%
+pid_22380_luid_0x00000000_0x000102d1_phys_0_eng_3_engtype_3d: 0%
+pid_22380_luid_0x00000000_0x000102d1_phys_0_eng_4_engtype_3d: 0%
+pid_22380_luid_0x00000000_0x000102d1_phys_0_eng_5_engtype_3d: 0%
+pid_22380_luid_0x00000000_0x000102d1_phys_0_eng_6_engtype_3d: 0%
+pid_22380_luid_0x00000000_0x000102d1_phys_0_eng_7_engtype_3d: 0%
+pid_22380_luid_0x00000000_0x000102d1_phys_0_eng_8_engtype_3d: 0%
+pid_22380_luid_0x00000000_0x000102d1_phys_0_eng_9_engtype_3d: 0%
+pid_22472_luid_0x00000000_0x0000fee6_phys_0_eng_0_engtype_3d: 0%
+pid_22472_luid_0x00000000_0x0000fee6_phys_0_eng_10_engtype_: 0%
+pid_22472_luid_0x00000000_0x0000fee6_phys_0_eng_11_engtype_: 0%
+pid_22472_luid_0x00000000_0x0000fee6_phys_0_eng_12_engtype_: 0%
+pid_22472_luid_0x00000000_0x0000fee6_phys_0_eng_1_engtype_videodecode: 0%
+pid_22472_luid_0x00000000_0x0000fee6_phys_0_eng_2_engtype_copy: 0%
+pid_22472_luid_0x00000000_0x0000fee6_phys_0_eng_3_engtype_videoprocessing: 0%
+pid_22472_luid_0x00000000_0x0000fee6_phys_0_eng_4_engtype_videodecode: 0%
+pid_22472_luid_0x00000000_0x0000fee6_phys_0_eng_5_engtype_compute: 0%
+pid_22472_luid_0x00000000_0x0000fee6_phys_0_eng_6_engtype_gsc: 0%
+pid_22472_luid_0x00000000_0x0000fee6_phys_0_eng_7_engtype_: 0%
+pid_22472_luid_0x00000000_0x0000fee6_phys_0_eng_8_engtype_: 0%
+pid_22472_luid_0x00000000_0x0000fee6_phys_0_eng_9_engtype_: 0%
+pid_22960_luid_0x00000000_0x0000fee6_phys_0_eng_0_engtype_3d: 0%
+pid_22960_luid_0x00000000_0x0000fee6_phys_0_eng_10_engtype_: 0%
+pid_22960_luid_0x00000000_0x0000fee6_phys_0_eng_11_engtype_: 0%
+pid_22960_luid_0x00000000_0x0000fee6_phys_0_eng_12_engtype_: 0%
+pid_22960_luid_0x00000000_0x0000fee6_phys_0_eng_1_engtype_videodecode: 0%
+pid_22960_luid_0x00000000_0x0000fee6_phys_0_eng_2_engtype_copy: 0%
+pid_22960_luid_0x00000000_0x0000fee6_phys_0_eng_3_engtype_videoprocessing: 0%
+pid_22960_luid_0x00000000_0x0000fee6_phys_0_eng_4_engtype_videodecode: 0%
+pid_22960_luid_0x00000000_0x0000fee6_phys_0_eng_5_engtype_compute: 0%
+pid_22960_luid_0x00000000_0x0000fee6_phys_0_eng_6_engtype_gsc: 0%
+pid_22960_luid_0x00000000_0x0000fee6_phys_0_eng_7_engtype_: 0%
+pid_22960_luid_0x00000000_0x0000fee6_phys_0_eng_8_engtype_: 0%
+pid_22960_luid_0x00000000_0x0000fee6_phys_0_eng_9_engtype_: 0%
+pid_2920_luid_0x00000000_0x0000fee6_phys_0_eng_0_engtype_3d: 0.23%
+pid_2920_luid_0x00000000_0x0000fee6_phys_0_eng_10_engtype_: 0%
+pid_2920_luid_0x00000000_0x0000fee6_phys_0_eng_11_engtype_: 0%
+pid_2920_luid_0x00000000_0x0000fee6_phys_0_eng_12_engtype_: 0%
+pid_2920_luid_0x00000000_0x0000fee6_phys_0_eng_1_engtype_videodecode: 0%
+pid_2920_luid_0x00000000_0x0000fee6_phys_0_eng_2_engtype_copy: 0%
+pid_2920_luid_0x00000000_0x0000fee6_phys_0_eng_3_engtype_videoprocessing: 0%
+pid_2920_luid_0x00000000_0x0000fee6_phys_0_eng_4_engtype_videodecode: 0%
+pid_2920_luid_0x00000000_0x0000fee6_phys_0_eng_5_engtype_compute: 0%
+pid_2920_luid_0x00000000_0x0000fee6_phys_0_eng_6_engtype_gsc: 0%
+pid_2920_luid_0x00000000_0x0000fee6_phys_0_eng_7_engtype_: 0%
+pid_2920_luid_0x00000000_0x0000fee6_phys_0_eng_8_engtype_: 0%
+pid_2920_luid_0x00000000_0x0000fee6_phys_0_eng_9_engtype_: 0%
+pid_2920_luid_0x00000000_0x000102d1_phys_0_eng_0_engtype_3d: 0%
+pid_2920_luid_0x00000000_0x000102d1_phys_0_eng_10_engtype_3d: 0%
+pid_2920_luid_0x00000000_0x000102d1_phys_0_eng_11_engtype_3d: 0%
+pid_2920_luid_0x00000000_0x000102d1_phys_0_eng_12_engtype_3d: 0%
+pid_2920_luid_0x00000000_0x000102d1_phys_0_eng_13_engtype_3d: 0%
+pid_2920_luid_0x00000000_0x000102d1_phys_0_eng_14_engtype_3d: 0%
+pid_2920_luid_0x00000000_0x000102d1_phys_0_eng_15_engtype_3d: 0%
+pid_2920_luid_0x00000000_0x000102d1_phys_0_eng_16_engtype_3d: 0%
+pid_2920_luid_0x00000000_0x000102d1_phys_0_eng_1_engtype_3d: 0%
+pid_2920_luid_0x00000000_0x000102d1_phys_0_eng_2_engtype_3d: 0%
+pid_2920_luid_0x00000000_0x000102d1_phys_0_eng_3_engtype_3d: 0%
+pid_2920_luid_0x00000000_0x000102d1_phys_0_eng_4_engtype_3d: 0%
+pid_2920_luid_0x00000000_0x000102d1_phys_0_eng_5_engtype_3d: 0%
+pid_2920_luid_0x00000000_0x000102d1_phys_0_eng_6_engtype_3d: 0%
+pid_2920_luid_0x00000000_0x000102d1_phys_0_eng_7_engtype_3d: 0%
+pid_2920_luid_0x00000000_0x000102d1_phys_0_eng_8_engtype_3d: 0%
+pid_2920_luid_0x00000000_0x000102d1_phys_0_eng_9_engtype_3d: 0%
+pid_3836_luid_0x00000000_0x0001034c_phys_0_eng_0_engtype_3d: 0%
+pid_4660_luid_0x00000000_0x0000fee6_phys_0_eng_0_engtype_3d: 0%
+pid_4660_luid_0x00000000_0x0000fee6_phys_0_eng_10_engtype_: 0%
+pid_4660_luid_0x00000000_0x0000fee6_phys_0_eng_11_engtype_: 0%
+pid_4660_luid_0x00000000_0x0000fee6_phys_0_eng_12_engtype_: 0%
+pid_4660_luid_0x00000000_0x0000fee6_phys_0_eng_1_engtype_videodecode: 0%
+pid_4660_luid_0x00000000_0x0000fee6_phys_0_eng_2_engtype_copy: 0%
+pid_4660_luid_0x00000000_0x0000fee6_phys_0_eng_3_engtype_videoprocessing: 0%
+pid_4660_luid_0x00000000_0x0000fee6_phys_0_eng_4_engtype_videodecode: 0%
+pid_4660_luid_0x00000000_0x0000fee6_phys_0_eng_5_engtype_compute: 0%
+pid_4660_luid_0x00000000_0x0000fee6_phys_0_eng_6_engtype_gsc: 0%
+pid_4660_luid_0x00000000_0x0000fee6_phys_0_eng_7_engtype_: 0%
+pid_4660_luid_0x00000000_0x0000fee6_phys_0_eng_8_engtype_: 0%
+pid_4660_luid_0x00000000_0x0000fee6_phys_0_eng_9_engtype_: 0%
+pid_4_luid_0x00000000_0x0000fee6_phys_0_eng_0_engtype_3d: 0%
+pid_4_luid_0x00000000_0x0000fee6_phys_0_eng_10_engtype_: 0%
+pid_4_luid_0x00000000_0x0000fee6_phys_0_eng_11_engtype_: 0%
+pid_4_luid_0x00000000_0x0000fee6_phys_0_eng_12_engtype_: 0%
+pid_4_luid_0x00000000_0x0000fee6_phys_0_eng_1_engtype_videodecode: 0%
+pid_4_luid_0x00000000_0x0000fee6_phys_0_eng_2_engtype_copy: 0%
+pid_4_luid_0x00000000_0x0000fee6_phys_0_eng_3_engtype_videoprocessing: 0%
+pid_4_luid_0x00000000_0x0000fee6_phys_0_eng_4_engtype_videodecode: 0%
+pid_4_luid_0x00000000_0x0000fee6_phys_0_eng_5_engtype_compute: 0%
+pid_4_luid_0x00000000_0x0000fee6_phys_0_eng_6_engtype_gsc: 0%
+pid_4_luid_0x00000000_0x0000fee6_phys_0_eng_7_engtype_: 0%
+pid_4_luid_0x00000000_0x0000fee6_phys_0_eng_8_engtype_: 0%
+pid_4_luid_0x00000000_0x0000fee6_phys_0_eng_9_engtype_: 0%
+pid_4_luid_0x00000000_0x000102d1_phys_0_eng_0_engtype_3d: 0%
+pid_4_luid_0x00000000_0x000102d1_phys_0_eng_10_engtype_3d: 0%
+pid_4_luid_0x00000000_0x000102d1_phys_0_eng_11_engtype_3d: 0%
+pid_4_luid_0x00000000_0x000102d1_phys_0_eng_12_engtype_3d: 0%
+pid_4_luid_0x00000000_0x000102d1_phys_0_eng_13_engtype_3d: 0%
+pid_4_luid_0x00000000_0x000102d1_phys_0_eng_14_engtype_3d: 0%
+pid_4_luid_0x00000000_0x000102d1_phys_0_eng_15_engtype_3d: 0%
+pid_4_luid_0x00000000_0x000102d1_phys_0_eng_16_engtype_3d: 0%
+pid_4_luid_0x00000000_0x000102d1_phys_0_eng_1_engtype_3d: 0%
+pid_4_luid_0x00000000_0x000102d1_phys_0_eng_2_engtype_3d: 0%
+pid_4_luid_0x00000000_0x000102d1_phys_0_eng_3_engtype_3d: 0%
+pid_4_luid_0x00000000_0x000102d1_phys_0_eng_4_engtype_3d: 0%
+pid_4_luid_0x00000000_0x000102d1_phys_0_eng_5_engtype_3d: 0%
+pid_4_luid_0x00000000_0x000102d1_phys_0_eng_6_engtype_3d: 0%
+pid_4_luid_0x00000000_0x000102d1_phys_0_eng_7_engtype_3d: 0%
+pid_4_luid_0x00000000_0x000102d1_phys_0_eng_8_engtype_3d: 0%
+pid_4_luid_0x00000000_0x000102d1_phys_0_eng_9_engtype_3d: 0%
+pid_4_luid_0x00000000_0x0001034c_phys_0_eng_0_engtype_3d: 0%
+pid_5788_luid_0x00000000_0x0000fee6_phys_0_eng_0_engtype_3d: 0%
+pid_5788_luid_0x00000000_0x0000fee6_phys_0_eng_10_engtype_: 0%
+pid_5788_luid_0x00000000_0x0000fee6_phys_0_eng_11_engtype_: 0%
+pid_5788_luid_0x00000000_0x0000fee6_phys_0_eng_12_engtype_: 0%
+pid_5788_luid_0x00000000_0x0000fee6_phys_0_eng_1_engtype_videodecode: 0%
+pid_5788_luid_0x00000000_0x0000fee6_phys_0_eng_2_engtype_copy: 0%
+pid_5788_luid_0x00000000_0x0000fee6_phys_0_eng_3_engtype_videoprocessing: 0%
+pid_5788_luid_0x00000000_0x0000fee6_phys_0_eng_4_engtype_videodecode: 0%
+pid_5788_luid_0x00000000_0x0000fee6_phys_0_eng_5_engtype_compute: 0%
+pid_5788_luid_0x00000000_0x0000fee6_phys_0_eng_6_engtype_gsc: 0%
+pid_5788_luid_0x00000000_0x0000fee6_phys_0_eng_7_engtype_: 0%
+pid_5788_luid_0x00000000_0x0000fee6_phys_0_eng_8_engtype_: 0%
+pid_5788_luid_0x00000000_0x0000fee6_phys_0_eng_9_engtype_: 0%
+pid_7244_luid_0x00000000_0x0000fee6_phys_0_eng_0_engtype_3d: 0%
+pid_7244_luid_0x00000000_0x0000fee6_phys_0_eng_10_engtype_: 0%
+pid_7244_luid_0x00000000_0x0000fee6_phys_0_eng_11_engtype_: 0%
+pid_7244_luid_0x00000000_0x0000fee6_phys_0_eng_12_engtype_: 0%
+pid_7244_luid_0x00000000_0x0000fee6_phys_0_eng_1_engtype_videodecode: 0%
+pid_7244_luid_0x00000000_0x0000fee6_phys_0_eng_2_engtype_copy: 0%
+pid_7244_luid_0x00000000_0x0000fee6_phys_0_eng_3_engtype_videoprocessing: 0%
+pid_7244_luid_0x00000000_0x0000fee6_phys_0_eng_4_engtype_videodecode: 0%
+pid_7244_luid_0x00000000_0x0000fee6_phys_0_eng_5_engtype_compute: 0%
+pid_7244_luid_0x00000000_0x0000fee6_phys_0_eng_6_engtype_gsc: 0%
+pid_7244_luid_0x00000000_0x0000fee6_phys_0_eng_7_engtype_: 0%
+pid_7244_luid_0x00000000_0x0000fee6_phys_0_eng_8_engtype_: 0%
+pid_7244_luid_0x00000000_0x0000fee6_phys_0_eng_9_engtype_: 0%
+pid_7920_luid_0x00000000_0x0000fee6_phys_0_eng_0_engtype_3d: 0%
+pid_7920_luid_0x00000000_0x0000fee6_phys_0_eng_10_engtype_: 0%
+pid_7920_luid_0x00000000_0x0000fee6_phys_0_eng_11_engtype_: 0%
+pid_7920_luid_0x00000000_0x0000fee6_phys_0_eng_12_engtype_: 0%
+pid_7920_luid_0x00000000_0x0000fee6_phys_0_eng_1_engtype_videodecode: 0%
+pid_7920_luid_0x00000000_0x0000fee6_phys_0_eng_2_engtype_copy: 0%
+pid_7920_luid_0x00000000_0x0000fee6_phys_0_eng_3_engtype_videoprocessing: 0%
+pid_7920_luid_0x00000000_0x0000fee6_phys_0_eng_4_engtype_videodecode: 0%
+pid_7920_luid_0x00000000_0x0000fee6_phys_0_eng_5_engtype_compute: 0%
+pid_7920_luid_0x00000000_0x0000fee6_phys_0_eng_6_engtype_gsc: 0%
+pid_7920_luid_0x00000000_0x0000fee6_phys_0_eng_7_engtype_: 0%
+pid_7920_luid_0x00000000_0x0000fee6_phys_0_eng_8_engtype_: 0%
+pid_7920_luid_0x00000000_0x0000fee6_phys_0_eng_9_engtype_: 0%
+pid_9232_luid_0x00000000_0x0000fee6_phys_0_eng_0_engtype_3d: 0%
+pid_9232_luid_0x00000000_0x0000fee6_phys_0_eng_10_engtype_: 0%
+pid_9232_luid_0x00000000_0x0000fee6_phys_0_eng_11_engtype_: 0%
+pid_9232_luid_0x00000000_0x0000fee6_phys_0_eng_12_engtype_: 0%
+pid_9232_luid_0x00000000_0x0000fee6_phys_0_eng_1_engtype_videodecode: 0%
+pid_9232_luid_0x00000000_0x0000fee6_phys_0_eng_2_engtype_copy: 0%
+pid_9232_luid_0x00000000_0x0000fee6_phys_0_eng_3_engtype_videoprocessing: 0%
+pid_9232_luid_0x00000000_0x0000fee6_phys_0_eng_4_engtype_videodecode: 0%
+pid_9232_luid_0x00000000_0x0000fee6_phys_0_eng_5_engtype_compute: 0%
+pid_9232_luid_0x00000000_0x0000fee6_phys_0_eng_6_engtype_gsc: 0%
+pid_9232_luid_0x00000000_0x0000fee6_phys_0_eng_7_engtype_: 0%
+pid_9232_luid_0x00000000_0x0000fee6_phys_0_eng_8_engtype_: 0%
+pid_9232_luid_0x00000000_0x0000fee6_phys_0_eng_9_engtype_: 0%
+pid_9232_luid_0x00000000_0x000102d1_phys_0_eng_0_engtype_3d: 0%
+pid_9232_luid_0x00000000_0x000102d1_phys_0_eng_10_engtype_3d: 0%
+pid_9232_luid_0x00000000_0x000102d1_phys_0_eng_11_engtype_3d: 0%
+pid_9232_luid_0x00000000_0x000102d1_phys_0_eng_12_engtype_3d: 0%
+pid_9232_luid_0x00000000_0x000102d1_phys_0_eng_13_engtype_3d: 0%
+pid_9232_luid_0x00000000_0x000102d1_phys_0_eng_14_engtype_3d: 0%
+pid_9232_luid_0x00000000_0x000102d1_phys_0_eng_15_engtype_3d: 0%
+pid_9232_luid_0x00000000_0x000102d1_phys_0_eng_16_engtype_3d: 0%
+pid_9232_luid_0x00000000_0x000102d1_phys_0_eng_1_engtype_3d: 0%
+pid_9232_luid_0x00000000_0x000102d1_phys_0_eng_2_engtype_3d: 0%
+pid_9232_luid_0x00000000_0x000102d1_phys_0_eng_3_engtype_3d: 0%
+pid_9232_luid_0x00000000_0x000102d1_phys_0_eng_4_engtype_3d: 0%
+pid_9232_luid_0x00000000_0x000102d1_phys_0_eng_5_engtype_3d: 0%
+pid_9232_luid_0x00000000_0x000102d1_phys_0_eng_6_engtype_3d: 0%
+pid_9232_luid_0x00000000_0x000102d1_phys_0_eng_7_engtype_3d: 0%
+pid_9232_luid_0x00000000_0x000102d1_phys_0_eng_8_engtype_3d: 0%
+pid_9232_luid_0x00000000_0x000102d1_phys_0_eng_9_engtype_3d: 0%
+pid_9664_luid_0x00000000_0x0000fee6_phys_0_eng_0_engtype_3d: 0%
+pid_9664_luid_0x00000000_0x0000fee6_phys_0_eng_10_engtype_: 0%
+pid_9664_luid_0x00000000_0x0000fee6_phys_0_eng_11_engtype_: 0%
+pid_9664_luid_0x00000000_0x0000fee6_phys_0_eng_12_engtype_: 0%
+pid_9664_luid_0x00000000_0x0000fee6_phys_0_eng_1_engtype_videodecode: 0%
+pid_9664_luid_0x00000000_0x0000fee6_phys_0_eng_2_engtype_copy: 0%
+pid_9664_luid_0x00000000_0x0000fee6_phys_0_eng_3_engtype_videoprocessing: 0%
+pid_9664_luid_0x00000000_0x0000fee6_phys_0_eng_4_engtype_videodecode: 0%
+pid_9664_luid_0x00000000_0x0000fee6_phys_0_eng_5_engtype_compute: 0%
+pid_9664_luid_0x00000000_0x0000fee6_phys_0_eng_6_engtype_gsc: 0%
+pid_9664_luid_0x00000000_0x0000fee6_phys_0_eng_7_engtype_: 0%
+pid_9664_luid_0x00000000_0x0000fee6_phys_0_eng_8_engtype_: 0%
+pid_9664_luid_0x00000000_0x0000fee6_phys_0_eng_9_engtype_: 0%
+pid_972_luid_0x00000000_0x0000fee6_phys_0_eng_0_engtype_3d: 0%
+pid_972_luid_0x00000000_0x0000fee6_phys_0_eng_10_engtype_: 0%
+pid_972_luid_0x00000000_0x0000fee6_phys_0_eng_11_engtype_: 0%
+pid_972_luid_0x00000000_0x0000fee6_phys_0_eng_12_engtype_: 0%
+pid_972_luid_0x00000000_0x0000fee6_phys_0_eng_1_engtype_videodecode: 0%
+pid_972_luid_0x00000000_0x0000fee6_phys_0_eng_2_engtype_copy: 0%
+pid_972_luid_0x00000000_0x0000fee6_phys_0_eng_3_engtype_videoprocessing: 0%
+pid_972_luid_0x00000000_0x0000fee6_phys_0_eng_4_engtype_videodecode: 0%
+pid_972_luid_0x00000000_0x0000fee6_phys_0_eng_5_engtype_compute: 0%
+pid_972_luid_0x00000000_0x0000fee6_phys_0_eng_6_engtype_gsc: 0%
+pid_972_luid_0x00000000_0x0000fee6_phys_0_eng_7_engtype_: 0%
+pid_972_luid_0x00000000_0x0000fee6_phys_0_eng_8_engtype_: 0%
+pid_972_luid_0x00000000_0x0000fee6_phys_0_eng_9_engtype_: 0%
+pid_9744_luid_0x00000000_0x0000fee6_phys_0_eng_0_engtype_3d: 0%
+pid_9744_luid_0x00000000_0x0000fee6_phys_0_eng_10_engtype_: 0%
+pid_9744_luid_0x00000000_0x0000fee6_phys_0_eng_11_engtype_: 0%
+pid_9744_luid_0x00000000_0x0000fee6_phys_0_eng_12_engtype_: 0%
+pid_9744_luid_0x00000000_0x0000fee6_phys_0_eng_1_engtype_videodecode: 0%
+pid_9744_luid_0x00000000_0x0000fee6_phys_0_eng_2_engtype_copy: 0%
+pid_9744_luid_0x00000000_0x0000fee6_phys_0_eng_3_engtype_videoprocessing: 0%
+pid_9744_luid_0x00000000_0x0000fee6_phys_0_eng_4_engtype_videodecode: 0%
+pid_9744_luid_0x00000000_0x0000fee6_phys_0_eng_5_engtype_compute: 0%
+pid_9744_luid_0x00000000_0x0000fee6_phys_0_eng_6_engtype_gsc: 0%
+pid_9744_luid_0x00000000_0x0000fee6_phys_0_eng_7_engtype_: 0%
+pid_9744_luid_0x00000000_0x0000fee6_phys_0_eng_8_engtype_: 0%
+pid_9744_luid_0x00000000_0x0000fee6_phys_0_eng_9_engtype_: 0%
+
+GPU Memory (if exposed by counters):
+luid_0x00000000_0x0000fee6_phys_0: 0 MB
+luid_0x00000000_0x000102d1_phys_0: 0 MB
+luid_0x00000000_0x0001034c_phys_0: 0 MB
+Note: For deeper Intel GPU telemetry on Windows, use Intel Graphics Command Center.
+
+[2025-12-25 09:46:40] Checking for critical conditions...
+========== SYSTEM ALERTS ==========
+✅ All systems normal
+
+Alert count: 0
+======================================
+Report saved to: /mnt/d/AASTMT/5th Semester/OS_Project/SystemMonitor/reports/system_report_20251225_094626.txt

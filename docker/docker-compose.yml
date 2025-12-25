@@ -1,0 +1,33 @@
+services:
+  system_monitor:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: system_monitor
+    environment:
+      TZ: "Africa/Cairo"
+      GENERATE_HTML: "true"
+      BRIEF_MODE: "false"
+      RUN_INTERVAL_SECONDS: "60"
+      CPU_SAMPLE_SECONDS: "5"
+      VERBOSE: "false"
+      USE_WINDOWS_INTEGRATION: "true"
+      WINDOWS_TEMPS_CSV: "/data/hwinfo_temps.csv"
+      HOST_METRICS_JSON: "/data/host_metrics.json"
+      CSV_MAX_CORES: "6"
+      CSV_DELIM: ","
+      ENABLE_PDF: "true"
+      ENABLE_QR: "true"
+      ENABLE_HTTP_SERVER: "true"
+      HTTP_PORT: "8088"
+      # Pulled from .env by docker compose (auto-written by start_system_monitor.ps1)
+      REPORT_BASE_URL: "${REPORT_BASE_URL}"
+    volumes:
+      - ../scripts:/app/scripts
+      - ../reports:/app/reports
+      - ../logs:/app/logs
+      - /mnt/d/My_Documents/hwinfo_temps.csv:/data/hwinfo_temps.csv:ro
+      - /mnt/d/My_Documents/host_metrics.json:/data/host_metrics.json:ro
+    ports:
+      - "8088:8088"
+    restart: unless-stopped

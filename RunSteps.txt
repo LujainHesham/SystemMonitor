@@ -1,0 +1,11 @@
+1- Show wsl commands used in bash file
+2-Unit Testing using source monitor.sh command which uses 8088 port
+3-call a function in bash script
+afterwards
+4-close the connection by the following commands:
+Get-NetTCPConnection -LocalPort 8088
+Get-NetTCPConnection -LocalPort 8088 | Select-Object OwningProcess
+Stop-Process -Id "put here owning process" -Force
+
+5-Run Powershell file: detect ip, start json parsing for gpu, create docker
+6-go to wsl > scripts > run zenity

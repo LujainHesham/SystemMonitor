@@ -1,0 +1,207 @@
+Complete Linux OS Lab Commands Reference
+BASIC FILE OPERATIONS
+
+Command	Key Definition & Role
+ls	List - Display directory contents
+pwd	Print Working Directory - Show current location
+cd	Change Directory - Navigate between folders
+mkdir	Make Directory - Create new folders
+rmdir	Remove Directory - Delete empty folders
+touch	Create/Update - Make new files or update timestamps
+cp	Copy - Duplicate files/directories
+mv	Move - Relocate or rename files
+rm	Remove - Delete files/directories
+
+
+FILE VIEWING & EDITING
+Command	Key Definition & Role
+cat	Concatenate - Display entire file content
+more	Page Viewer - View files one screen at a time
+less	Advanced Viewer - Scrollable file viewer
+head	Beginning - Show first lines of file
+tail	Ending - Show last lines of file
+nano	Simple Editor - User-friendly text editor
+vim	Advanced Editor - Powerful text editor
+grep	Global Regular Expression Print - Search text patterns
+
+
+PERMISSIONS & OWNERSHIP
+Command	Key Definition & Role
+chmod	Change Mode - Modify file permissions
+chown	Change Owner - Transfer file ownership
+chgrp	Change Group - Modify file group association
+
+
+COMMON PERMISSION VALUES
+Command	Key Definition & Role
+chmod 755	Standard Executable - Owner: rwx, Others: rx
+chmod 644	Standard File - Owner: rw, Others: r
+chmod +x	Make Executable - Add execute permission
+chmod 700	Private Access - Only owner can access
+
+
+PERMISSION TYPES
+Type	Key Definition & Role
+Read (r)	View Content - Read file contents or list directory
+Write (w)	Modify Content - Edit files or create/delete in directories
+Execute (x)	Run Program - Execute files or traverse directories
+User (u)	Owner Rights - Permissions for file owner
+Group (g)	Group Rights - Permissions for file group members
+Others (o)	Public Rights - Permissions for everyone else
+
+
+SUPERUSER COMMANDS
+Command	Key Definition & Role
+sudo	Superuser Do - Execute commands with administrative privileges
+sudo -i	Superuser Interactive - Start root shell session
+sudo apt update	Update Packages - Refresh software repository list
+sudo apt install	Install Software - Add new programs to system
+sudo systemctl	System Control - Manage system services
+
+
+PROCESS MANAGEMENT
+Command	Key Definition & Role
+ps	Process Status - Display running processes
+top	Table of Processes - Interactive process monitor
+htop	Enhanced Top - Colorful process viewer with controls
+kill	Terminate Process - Stop running process by ID
+killall	Kill All - Stop processes by name
+jobs	Background Jobs - Show suspended/background processes
+bg	Background - Resume job in background
+fg	Foreground - Bring job to foreground
+
+
+NAVIGATION & HISTORY
+Command	Key Definition & Role
+history	Command History - Show previously executed commands
+!!	Repeat Last - Execute most recent command again
+!n	Repeat Number - Run command from history by number
+clear	Clear Screen - Clean terminal display
+
+
+KEYBOARD SHORTCUTS
+Shortcut	Key Definition & Role
+Ctrl+C	Cancel/Interrupt - Stop current command
+Ctrl+Z	Suspend - Pause current command
+Ctrl+D	End of File - Exit shell or end input
+Ctrl+L	Clear Screen - Equivalent to clear command
+Ctrl+R	Reverse Search - Search command history
+Tab	Auto-complete - Finish commands/filenames automatically
+
+
+REDIRECTION & PIPES
+Operator	Key Definition & Role
+>	Output Redirect - Send command output to file (overwrite)
+>>	Append Redirect - Add command output to file (append)
+<	Input Redirect - Use file as command input
+`	`	Pipe - Connect output of one command to input of another
+2>	Error Redirect - Send error messages to file
+&>	All Redirect - Redirect both output and errors
+
+
+SYSTEM INFORMATION
+Command	Key Definition & Role
+whoami	Who Am I - Display current username
+uname	Unix Name - Show system information
+df	Disk Free - Display disk space usage
+du	Disk Usage - Show file/directory sizes
+free	Memory Status - Display RAM usage
+date	Current Date/Time - Show system date and time
+
+
+NETWORK COMMANDS
+Command	Key Definition & Role
+ifconfig	Interface Config - Show network interface details
+ip addr	IP Address - Modern network interface information
+ping	Packet Internet Groper - Test network connectivity
+wget	Web Get - Download files from internet
+curl	Client URL - Transfer data from servers
+
+
+COMPRESSION & ARCHIVES
+Command	Key Definition & Role
+tar	Tape Archive - Bundle files into archives
+gzip	GNU Zip - Compress files
+gunzip	GNU Unzip - Decompress files
+zip	Create Zip - Make compressed zip archives
+unzip	Extract Zip - Unpack zip archives
+
+
+HELP & DOCUMENTATION
+Command	Key Definition & Role
+man	Manual - Display command documentation
+whatis	What Is - Show brief command description
+which	Locate Command - Show full path of commands
+--help	Help Option - Display command usage information
+info	Information - Alternative documentation system
+
+
+LS COMMAND OPTIONS
+Option	Key Definition & Role
+ls -l	Long Listing - Detailed file information
+ls -a	All Files - Include hidden files (starting with .)
+ls -al	All Long - Detailed listing with hidden files
+ls -lh	Human Readable - File sizes in KB, MB, GB
+ls -t	Time Sort - Order by modification time
+ls -S	Size Sort - Order by file size
+ls -r	Reverse - Reverse sort order
+
+
+SHEBANG & SHELL SCRIPTS
+Command	Key Definition & Role
+#!/bin/bash	Interpreter Directive - Specify Bash shell for script
+chmod +x	Make Executable - Allow script to be run directly
+./script.sh	Execute Script - Run script in current directory
+bash script.sh	Run with Interpreter - Execute using specified shell
+source script.sh	Load into Shell - Run script in current shell environment
+
+
+	SCRIPT EXECUTION METHODS
+Method	Key Definition & Role
+Shebang + Execute	Make script self-contained with interpreter directive
+Specify Interpreter	Explicitly call shell to interpret script
+Source Command	Run script in current shell (affects environment)
+
+
+	DANGEROUS COMMANDS (USE CAREFULLY)
+Command	Key Definition & Role
+rm -rf	Recursive Force - Irreversible deletion of files/directories
+sudo	Superuser Power - Full system access capability
+chmod 777	Full Permissions - Gives everyone all access rights
+dd	Data Duplicator - Low-level disk operations
+format/mkfs	Format Disk - Erase and prepare storage devices
+COMMON WORKFLOWS
+
+
+	Compile C Program:
+nano program.c - Create/Edit source code
+gcc program.c -o program - Compile into executable
+chmod +x program - Make Executable for running
+./program - Execute the compiled program
+
+
+	Manage Files:
+mkdir project - Create directory structure
+cd project - Navigate to workspace
+touch file1.txt file2.txt - Create project files
+ls -la - Verify file creation and permissions
+chmod 600 secret.txt - Secure sensitive files
+
+
+	Monitor System:
+ps aux - Check all running processes
+top - Monitor real-time system resources
+df -h - Analyze disk space utilization
+free -h - Review memory usage statistics
+
+
+	PIPES & REDIRECTION
+ls > files.txt          # Save output to file
+ls >> files.txt         # Append output to file
+cat < input.txt         # Use file as input
+ls | grep ".txt"        # Pipe: find text files
+ls 2> errors.txt        # Save errors to file
+ls &> output.txt        # Save ALL output to file
+command1 && command2    # Run command2 only if command1 succeeds
+command1 || command2    # Run command2 only if command1 fails
+command1 ; command2     # Run command2 regardless

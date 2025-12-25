@@ -1,0 +1,14 @@
+System Monitoring Report (Brief Mode)
+Generated: 2025-12-24 16:37:38
+System: Linux 6.6.87.2-microsoft-standard-WSL2 x86_64 GNU/Linux
+Hostname: bd31411abe6d
+Uptime: up 0 minutes
+======================================
+
+Summary: CPU 0.05% (sample 5s), Mem 418Mi used / 7.5Gi total, Root 1%, Load 0.00, 0.00, 0.00
+
+[2025-12-24 16:37:48] Collecting CPU information...
+========== CPU INFORMATION ==========
+CPU Model: Intel(R) Core(TM) Ultra 7 255H
+CPU Cores: 16
+Load Average:0.00, 0.00, 0.00

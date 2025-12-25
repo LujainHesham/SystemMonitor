@@ -1,0 +1,67 @@
+System Monitoring Report (Brief Mode)
+Generated: 2025-12-24 16:43:10
+System: Linux 6.6.87.2-microsoft-standard-WSL2 x86_64 GNU/Linux
+Hostname: bd31411abe6d
+Uptime: up 5 minutes
+======================================
+
+Summary: CPU 0.16% (sample 5s), Mem 459Mi used / 7.5Gi total, Root 1%, Load 0.03, 0.05, 0.01
+
+[2025-12-24 16:43:18] Collecting CPU information...
+========== CPU INFORMATION ==========
+CPU Model: Intel(R) Core(TM) Ultra 7 255H
+CPU Cores: 16
+Load Average:0.03, 0.05, 0.01
+CPU Usage: 0.03% (sample 5s)
+
+[2025-12-24 16:43:23] Collecting Memory information...
+========== MEMORY INFORMATION ==========
+               total        used        free      shared  buff/cache   available
+Mem:           7.5Gi       460Mi       6.3Gi       3.0Mi       773Mi       6.9Gi
+Swap:          2.0Gi          0B       2.0Gi
+
+[2025-12-24 16:43:23] Collecting Disk information...
+========== DISK INFORMATION ==========
+Key Filesystems:
+Filesystem     Type     Size  Used Avail Use% Mounted on
+overlay        overlay 1007G  3.4G  953G   1% /
+
+All Filesystems (WSL includes overlays and tmpfs):
+Filesystem     Type     Size  Used Avail Use% Mounted on
+overlay        overlay 1007G  3.4G  953G   1% /
+tmpfs          tmpfs     64M     0   64M   0% /dev
+shm            tmpfs     64M     0   64M   0% /dev/shm
+D:\            9p       588G   55G  534G  10% /data/hwinfo_temps.csv
+/dev/sdd       ext4    1007G  3.4G  953G   1% /etc/hosts
+tmpfs          tmpfs    3.8G     0  3.8G   0% /proc/acpi
+tmpfs          tmpfs    3.8G     0  3.8G   0% /proc/scsi
+tmpfs          tmpfs    3.8G     0  3.8G   0% /sys/firmware
+
+--- Windows Disk Health (Host) ---
+FriendlyName                   Health       OperationalStatus  SizeGB    
+NVMe WD PC SN5000S SDEQNSJ-1T00-1002 Healthy      OK                 953.87    
+
+[2025-12-24 16:43:23] Collecting SMART status...
+========== SMART STATUS ==========
+--- Windows Host Disk Health ---
+FriendlyName                   Health       OperationalStatus  SizeGB    
+NVMe WD PC SN5000S SDEQNSJ-1T00-1002 Healthy      OK                 953.87    
+
+[2025-12-24 16:43:23] Collecting Temperature information...
+========== TEMPERATURE INFORMATION ==========
+WSL Environment Detected
+--- CSV Temperatures (Windows) ---
+CPU Package Temp (CSV): 61°C
+--- Windows Host Thermal Zones ---
+No Windows thermal zones available or access denied.
+Tip: Best results from HWiNFO64 CSV logging. Set WINDOWS_TEMPS_CSV to the CSV path.
+
+[2025-12-24 16:43:25] Collecting Network information...
+========== NETWORK INFORMATION ==========
+Network Interfaces:
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+eth0@if6         UP             172.18.0.2/16 
+
+Default Gateway:
+default via 172.18.0.1 dev eth0 
+

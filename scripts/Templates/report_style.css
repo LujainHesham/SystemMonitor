@@ -1,0 +1,82 @@
+/* CYBERPUNK NEON REPORT STYLE – Matches Zenity Dashboard */
+body {
+    background-color: #000000;
+    color: #00FFFF; /* Neon cyan base text */
+    font-family: 'Courier New', Monospace;
+    margin: 0;
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    color: #FF00FF; /* Neon magenta */
+    text-shadow: 0 0 10px #FF00FF, 0 0 20px #FF00FF;
+    letter-spacing: 2px;
+}
+
+h1 {
+    font-size: 2.5em;
+    text-align: center;
+    animation: glitch 2s infinite;
+}
+
+pre, code {
+    background: #111;
+    color: #00FF41; /* Neon green */
+    padding: 10px;
+    border: 1px solid #00FFFF;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+
+/* Tabs */
+.tab {
+    overflow: hidden;
+    border: 1px solid #00FFFF;
+    background-color: #111;
+}
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    color: #FFFF00; /* Neon yellow */
+    font-weight: bold;
+}
+.tab button:hover {
+    background-color: #222;
+    color: #FF0055; /* Neon pink */
+}
+.tab button.active {
+    background-color: #00FFFF;
+    color: #000;
+}
+
+/* Tab content */
+.tabcontent {
+    display: none;
+    padding: 20px;
+    border: 1px solid #00FFFF;
+    border-top: none;
+    background: #111;
+}
+
+/* Charts container */
+.chart-container {
+    width: 90%;
+    max-width: 800px;
+    margin: 30px auto;
+    background: #000;
+    padding: 20px;
+    border: 2px solid #00FFFF;
+    box-shadow: 0 0 15px #00FFFF;
+}
+
+/* Glitch animation */
+@keyframes glitch {
+    0% { text-shadow: 0 0 10px #FF00FF; }
+    20% { text-shadow: 5px 0 10px #00FFFF, -5px 0 10px #FF0055; }
+    40% { text-shadow: -5px 0 15px #FFFF00; }
+    100% { text-shadow: 0 0 10px #FF00FF; }
+}
