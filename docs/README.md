@@ -167,13 +167,6 @@ This project demonstrates our ability to:
 
 ---
 
-## 📞 Contact
-
-**Team Members:**
-- Lujain Hesham - [GitHub](https://github.com/LujainHesham)
-- Nour Mohamed - [GitHub](https://github.com/NourMohamed)
-- Hala Mohamed - [GitHub](https://github.com/HalaMohamed)
-
 **Project Repository:**  
 [https://github.com/LujainHesham/PC-Health-Monitoring](https://github.com/LujainHesham/PC-Health-Monitoring)
 
@@ -182,9 +175,3 @@ This project demonstrates our ability to:
 *This project was developed as part of our Operating Systems coursework at AASTMT. It represents our learning journey in system programming, containerization, and cross-platform development.*
 
 ---
-
-
-
-It tells recruiters: "We're students who can learn quickly, work in teams, and apply technical concepts to real problems" - which is exactly what they want to see from university candidates.
-
-Would you like me to adjust any part to better reflect your actual experience or team dynamics?
