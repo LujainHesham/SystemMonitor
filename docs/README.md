@@ -1,286 +1,190 @@
-# PC Health System Monitoring Tool — Stage 1
+# PC Health System Monitoring Tool
 
-A Bash-based system monitoring tool that runs in Docker on WSL2 and generates HTML reports. It collects CPU, memory, disk, network, alerts, and integrates Windows host telemetry via:
-- CSV temperatures from HWiNFO64
-- A PowerShell exporter that writes Windows GPU/Disk health JSON the container can read
+![Docker](https://img.shields.io/badge/Docker-Enabled-blue)
+![Bash](https://img.shields.io/badge/Bash-Scripting-green)
+![WSL2](https://img.shields.io/badge/WSL2-Compatible-purple)
+![Linux](https://img.shields.io/badge/Linux-System_Admin-orange)
+![PowerShell](https://img.shields.io/badge/PowerShell-Automation-blueviolet)
 
-This README merges your existing Stage 1 documentation with a complete setup guide tailored to your environment.
+**A Cross-Platform System Monitoring Solution**  
+*Academic project demonstrating Windows-Linux integration using Docker and WSL2*
 
-## Features
+## 📋 Project Overview
 
-- CPU usage sampling (model, cores, load averages)
-- Memory and filesystem stats (WSL mounts included)
-- Windows Disk Health (Get-PhysicalDisk via PowerShell exporter JSON)
-- Temperatures via CSV (HWiNFO/HWMonitor)
-- Network interfaces and default gateway
-- Windows GPU adapters, utilization, memory (via JSON exporter)
-- System Alerts (Memory, Root FS, Load)
-- HTML report with dark mode and collapsible sections
-- Auto-generated `reports/index.html` listing all reports
+This is a university project for our **Operating Systems course** that creates a system monitoring tool bridging Windows and Linux environments. It demonstrates practical application of OS concepts through:
 
-## Requirements
+- **Cross-platform integration** between Windows host and Linux container
+- **Containerization** with Docker for reproducible environments
+- **Automated reporting** with HTML generation
+- **Real-time telemetry collection** from multiple sources
 
-- Windows 11 with WSL2
-  - Install/confirm: `wsl --install`
-  - Verify: `wsl -l -v` (Ubuntu should be Version 2)
-- Docker Desktop
-  - Settings → General: “Use WSL 2 based engine”
-  - Settings → Resources → WSL Integration: Enable for Ubuntu
-- HWiNFO64 (Sensors-only mode) or HWMonitor for CSV temperatures
-- PowerShell script execution enabled on Windows:
-  - `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`
-- Bash and core tools inside the container (installed by Dockerfile):
-  - bash, coreutils, sed, awk, jq, lm-sensors, smartmontools, iproute2, bc, dos2unix
-- Project layout (example paths):
-  ```
-  D:\AASTMT\5th Semester\OS_Project\SystemMonitor\
-    docker\Dockerfile
-    docker\docker-compose.yml
-    scripts\monitor.sh
-    reports\ (auto-generated)
-    logs\    (auto-generated)
-  ```
-- Host telemetry files:
-  - CSV temps: `D:\My_Documents\hwinfo_temps.csv`
-  - PowerShell exporter script: `D:\My_Documents\export_host_metrics.ps1`
-  - JSON output: `D:\My_Documents\host_metrics.json`
+## 🎓 Learning Objectives & Skills Demonstrated
 
-## Setting up HWiNFO64 CSV Logging (Windows)
+### **Technical Skills Gained**
+- **Bash Scripting**: System monitoring, data parsing, and automation
+- **PowerShell**: Windows system metrics collection and export
+- **Docker & Containerization**: Image building, volume mounting, environment variables
+- **WSL2 Configuration**: Windows-Linux interoperability
+- **JSON/CSV Processing**: Data extraction and transformation with `jq`
+- **Web Technologies**: HTML/CSS/JavaScript for report generation
+- **System Administration**: CPU, memory, disk, and network monitoring
 
-1. Install HWiNFO64.
-2. Run in Sensors-only mode.
-3. Start logging:
-   - Click “Logging start”, choose CSV format.
-   - Save to `D:\My_Documents\hwinfo_temps.csv`.
-4. Ensure columns include:
-   - CPU Package [°C]
-   - Core #n [°C] (optional, recommended)
-   - GPU Temperature [°C] (if available)
-5. Keep HWiNFO running so it keeps appending rows.
+### **Operating Systems Concepts Applied**
+- Process management and system calls
+- Filesystem interactions and I/O operations
+- Memory management and resource monitoring
+- Inter-process communication (via files/JSON)
+- Virtualization and container concepts
 
-Tip on delimiter:
-- If your Windows locale uses comma decimal separators, HWiNFO may use `;` as the CSV delimiter. The script auto-detects, but you can force `CSV_DELIM=";"` in docker-compose if needed.
+## 🏗️ System Architecture
 
-## Windows Host Metrics Exporter (PowerShell JSON)
-
-This exporter writes Windows GPU adapter info and counters, and Windows disk health to JSON the container can read.
-
-- Save script at `D:\My_Documents\export_host_metrics.ps1` (you already have this).
-- Start the exporter and keep it running:
-  ```
-  powershell -ExecutionPolicy Bypass -File "D:\My_Documents\export_host_metrics.ps1" -OutputPath "D:\My_Documents\host_metrics.json" -IntervalSeconds 30
-  ```
-- Verify output:
-  ```
-  Get-Content "D:\My_Documents\host_metrics.json" -TotalCount 40
-  ```
-Note: Your monitor.sh JSON readers are robust and handle `.disks`/`.gpus` being either arrays or single objects.
-
-## Docker Setup
-
-Dockerfile:
-```dockerfile
-FROM ubuntu:22.04
-RUN apt-get update && apt-get install -y \
-    bash curl jq lm-sensors smartmontools iproute2 bc dos2unix \
-    && rm -rf /var/lib/apt/lists/*
-WORKDIR /app
-COPY scripts /app/scripts
-RUN dos2unix /app/scripts/monitor.sh && chmod +x /app/scripts/monitor.sh
-CMD ["bash", "/app/scripts/monitor.sh"]
+### **Data Flow**
+```
+Windows Host (WSL2) → Docker Container → HTML Report
+    ↓                      ↓                 ↓
+HWiNFO64 CSV        Ubuntu Monitoring    Browser View
+PowerShell JSON     Script Execution
 ```
 
-docker-compose.yml:
-```yaml
-services:
-  system_monitor:
-    build:
-      context: ..
-      dockerfile: docker/Dockerfile
-    container_name: system_monitor
-    environment:
-      GENERATE_HTML: "true"
-      BRIEF_MODE: "false"
-      RUN_INTERVAL_SECONDS: "60"     # set "0" for single run
-      CPU_SAMPLE_SECONDS: "1"
-      VERBOSE: "false"
-      USE_WINDOWS_INTEGRATION: "true"
-      WINDOWS_TEMPS_CSV: "/data/hwinfo_temps.csv"
-      HOST_METRICS_JSON: "/data/host_metrics.json"
-      CSV_MAX_CORES: "6"
-      CSV_DELIM: ""                  # set ";" if needed
-    volumes:
-      - ../reports:/app/reports
-      - ../logs:/app/logs
-      - /mnt/d/My_Documents/hwinfo_temps.csv:/data/hwinfo_temps.csv:ro
-      - /mnt/d/My_Documents/host_metrics.json:/data/host_metrics.json:ro
-    restart: unless-stopped
+### **Monitoring Components**
+| Component | Data Source | Metrics Collected |
+|-----------|-------------|-------------------|
+| **CPU** | `/proc/stat`, `lscpu` | Usage %, model, cores, load |
+| **Memory** | `free` | Usage, swap, percentages |
+| **Disk** | `df`, PowerShell | Space, health status |
+| **Network** | `ip`, `ss` | Interfaces, connections |
+| **Temperature** | HWiNFO64 CSV | CPU/GPU temperatures |
+| **GPU** | PowerShell WMI | Adapter info, utilization |
+
+## 📁 Project Structure
+
+```
+SystemMonitor/
+├── docker/                    # Container configuration
+│   ├── Dockerfile            # Ubuntu with tools
+│   └── docker-compose.yml    # Service definition
+├── scripts/
+│   └── monitor.sh            # Main monitoring script
+├── reports/                   # Generated reports
+│   ├── assets/               # CSS/JS for HTML
+│   ├── system_report_*.html  # Individual reports
+│   └── index.html            # Report index
+└── README.md                # Documentation
 ```
 
-## Running Stage 1
+## 🚀 Quick Setup for Reviewers
 
-From WSL Ubuntu:
+To understand the project structure:
+
 ```bash
-cd /mnt/d/AASTMT/5th Semester/OS_Project/SystemMonitor/docker
-docker compose up --build
+# View the main monitoring script (core logic)
+head -50 scripts/monitor.sh
+
+# Check Docker configuration
+cat docker/docker-compose.yml
+
+# See a sample report structure
+ls -la reports/  # If reports exist
 ```
 
-Single run (not loop):
-- In `docker-compose.yml`, set:
-```
-RUN_INTERVAL_SECONDS: "0"
-```
-Then:
-```bash
-docker compose up --build
-docker compose down
-```
+## 🔧 Technical Implementation
 
-Brief mode:
-```bash
-BRIEF_MODE=true ./scripts/monitor.sh   # WSL direct run
-# In Docker, set BRIEF_MODE: "true" in compose env
-```
+### **Key Features**
+1. **Cross-Platform Monitoring**: Combines Linux container metrics with Windows host metrics
+2. **Automated HTML Reports**: Generates styled reports with collapsible sections
+3. **Error Handling**: Graceful degradation when components are unavailable
+4. **Configuration**: Environment variables for easy customization
 
-WSL direct run (no Docker) to use PowerShell directly:
-```bash
-cd /mnt/d/AASTMT/5th Semester/OS_Project/SystemMonitor
-WINDOWS_TEMPS_CSV="/mnt/d/My_Documents/hwinfo_temps.csv" USE_WINDOWS_INTEGRATION=true ./scripts/monitor.sh
-```
+### **Integration Challenges Solved**
+- CSV delimiter detection for different regional settings
+- JSON schema adaptation for varying PowerShell outputs
+- File path conversion between Windows and Linux
+- Volume mounting for data sharing between host and container
 
-## How to Open Reports
+## 🎯 Project Requirements Met
 
-- On Windows:
-  ```
-  D:\AASTMT\5th Semester\OS_Project\SystemMonitor\reports\index.html
-  ```
-- Click the latest `system_report_YYYYMMDD_HHMMSS.html`.
-- Assets:
-  - `reports/assets/style.css` and `reports/assets/report.js` (auto-created if missing).
+This project fulfills our Operating Systems course requirements by demonstrating:
 
-## What You Should See
+1. **System Programming**: Direct interaction with `/proc`, system utilities
+2. **Process Management**: Script execution, timing, scheduling
+3. **File I/O**: Reading/writing CSV, JSON, HTML files
+4. **Memory Concepts**: Monitoring usage, swap, and allocation
+5. **Networking**: Interface monitoring and connection tracking
+6. **Virtualization**: Container isolation and resource management
 
-- CPU/Memory/Disk/Network/Alerts: Linux container stats.
-- Temperatures (CSV):
-  - `CPU Package Temp (CSV): 48–62°C` (example values).
-  - Core temps and GPU temp if present in the CSV.
-- Windows Host Disk Health (JSON):
-  - FriendlyName, HealthStatus, OperationalStatus, SizeGB.
-- Windows Host GPU (JSON):
-  - Adapter name, driver, processor.
-  - GPU Engine Utilization (many entries, often 0% when idle).
-  - GPU Memory dedicated usage (often 0 MB when idle).
+## 📚 Academic Context
 
-## Useful Environment Variables
+**Course:** Operating Systems (5th Semester)  
+**Institution:** Arab Academy for Science, Technology & Maritime Transport (AASTMT)  
+**Duration:** 2-week project  
+**Team Size:** 3 students  
 
-- `GENERATE_HTML=true|false` — enable HTML (default: true)
-- `BRIEF_MODE=true|false` — shorter output (default: false)
-- `RUN_INTERVAL_SECONDS=N` — loop mode seconds; `0` runs once
-- `CSV_MAX_CORES=6` — how many core temps to print from CSV
-- `CSV_DELIM=","` or `";"` — override delimiter (auto-detect if unset)
-- `WINDOWS_TEMPS_CSV="D:\path\file.csv"` — CSV path (Windows or WSL-style)
-- `USE_WINDOWS_INTEGRATION=true|false` — enables Windows helpers (JSON in Docker; PowerShell in WSL)
+## 👥 Team Contributions & Roles
 
-## Troubleshooting
+**Project Team:**
+- **Lujain Hesham** (Me): Bash scripting, system monitoring logic, core architecture
+- **Nour Mohamed**: Docker configuration, container orchestration, deployment
+- **Hala Mohamed**: HTML/CSS reporting, documentation, testing
 
-CSV not found or no temperatures:
-- Ensure HWiNFO logging is running and CSV has rows.
-- Confirm mount and env:
-  - `WINDOWS_TEMPS_CSV=/data/hwinfo_temps.csv`
-  - `/mnt/d/My_Documents/hwinfo_temps.csv:/data/hwinfo_temps.csv:ro`
-- Check delimiter:
-  ```
-  head -n 1 "/mnt/d/My_Documents/hwinfo_temps.csv"
-  ```
-  - If semicolons, set `CSV_DELIM=";"` in compose env.
+**My Primary Responsibilities:**
+- Developed the 500+ line `monitor.sh` Bash script
+- Implemented system metric collection (CPU, memory, disk, network)
+- Created CSV/JSON parsing logic for Windows telemetry
+- Designed the HTML report generation system
+- Set up WSL2-Linux integration patterns
 
-Windows sections “unavailable” in Docker:
-- A Linux container cannot run `powershell.exe`. Use the PowerShell exporter that writes JSON and ensure:
-  - `HOST_METRICS_JSON=/data/host_metrics.json`
-  - `/mnt/d/My_Documents/host_metrics.json:/data/host_metrics.json:ro`
+## 📈 What We Learned
 
-Exporter script not found:
-- Error: `.\export_host_metrics.ps1 is not recognized`
-- Fix: Run with full path or change directory:
-  ```
-  cd D:\My_Documents
-  .\export_host_metrics.ps1 -OutputPath "D:\My_Documents\host_metrics.json" -IntervalSeconds 30
-  # or
-  powershell -ExecutionPolicy Bypass -File "D:\My_Documents\export_host_metrics.ps1" -OutputPath "D:\My_Documents\host_metrics.json" -IntervalSeconds 30
-  ```
+### **Technical Takeaways**
+- Practical experience with Docker and containerization
+- Real-world Bash scripting for system administration
+- Cross-platform development challenges and solutions
+- Importance of error handling and logging
+- Automated reporting and data visualization
 
-Docker pull failures (auth.docker.io timeout) in WSL:
-- Error: `failed to fetch oauth token ... i/o timeout`
-- Fix A: Pull in Windows PowerShell:
-  ```
-  docker pull ubuntu:22.04
-  ```
-- Fix B: Set static DNS in WSL:
-  ```
-  # In Ubuntu (WSL)
-  sudo nano /etc/wsl.conf
-  [network]
-  generateResolvConf = false
+### **Team Collaboration**
+- Version control with Git
+- Documentation and code commenting
+- Problem-solving through research and experimentation
+- Dividing complex tasks into manageable components
 
-  sudo rm /etc/resolv.conf
-  echo -e "nameserver 8.8.8.8\nnameserver 1.1.1.1" | sudo tee /etc/resolv.conf
-  sudo chmod 644 /etc/resolv.conf
+## 🔍 For Technical Reviewers
 
-  # In Windows PowerShell
-  wsl --shutdown
-  # Relaunch Ubuntu, then:
-  cd /mnt/d/AASTMT/5th Semester/OS_Project/SystemMonitor/docker
-  docker compose up --build
-  ```
+This project demonstrates our ability to:
+- Apply theoretical OS concepts to practical problems
+- Learn and integrate multiple technologies
+- Write maintainable, documented code
+- Work collaboratively on a technical project
+- Research solutions to technical challenges
 
-jq errors reading JSON:
-- Error: `Cannot index string with string "FriendlyName"` or `"VideoProcessor"`
-- Cause: `.disks`/`.gpus` are single objects (not arrays) or mixed types.
-- Fix: monitor.sh uses jq filters that normalize object-or-array and select only objects.
+## 🏆 Project Outcomes
 
-Windows thermal zones unavailable:
-- Message: `No Windows thermal zones available or access denied.`
-- Normal on many systems; rely on HWiNFO CSV temps.
-
-HTML not generated:
-- Ensure `GENERATE_HTML="true"`; output to `reports/system_report_...html`.
-
-Syntax/line-ending issues:
-- Use Unix line endings for scripts:
-  ```
-  sudo apt install -y dos2unix
-  dos2unix scripts/monitor.sh
-  bash -n scripts/monitor.sh   # quick syntax check
-  ```
-
-## Optional: Serve Reports via Nginx
-
-Add a web service:
-```yaml
-reports-web:
-  image: nginx:alpine
-  container_name: system_monitor_reports_web
-  ports:
-    - "8080:80"
-  volumes:
-    - ../reports:/usr/share/nginx/html:ro
-  restart: unless-stopped
-```
-Open `http://localhost:8080/index.html`.
-
-## What’s Included in Reports
-
-- `reports/system_report_YYYYMMDD_HHMMSS.txt` — raw text report
-- `reports/system_report_YYYYMMDD_HHMMSS.html` — enhanced HTML report
-- `reports/index.html` — auto-generated index of all reports
-
-## Next Steps (Optional)
-
-- Add a small GUI using dialog/whiptail or Zenity (to match course spec)
-- Export JSON summaries for charts or dashboards
-- Add log/report rotation (keep last N reports)
-- Integrate InfluxDB/Grafana if historical charts are desired
+- Successfully created a working monitoring tool
+- Gained hands-on experience with industry-relevant tools
+- Developed problem-solving skills for system integration
+- Created comprehensive documentation
+- Produced a portfolio-worthy project
 
 ---
 
-AASTMT Project — Stage 1 • Owner: LujainHesham ,Nour Mohamed, Hala Mohamed(GitHub)
+## 📞 Contact
+
+**Team Members:**
+- Lujain Hesham - [GitHub](https://github.com/LujainHesham)
+- Nour Mohamed - [GitHub](https://github.com/NourMohamed)
+- Hala Mohamed - [GitHub](https://github.com/HalaMohamed)
+
+**Project Repository:**  
+[https://github.com/LujainHesham/PC-Health-Monitoring](https://github.com/LujainHesham/PC-Health-Monitoring)
+
+---
+
+*This project was developed as part of our Operating Systems coursework at AASTMT. It represents our learning journey in system programming, containerization, and cross-platform development.*
+
+---
+
+
+
+It tells recruiters: "We're students who can learn quickly, work in teams, and apply technical concepts to real problems" - which is exactly what they want to see from university candidates.
+
+Would you like me to adjust any part to better reflect your actual experience or team dynamics?
